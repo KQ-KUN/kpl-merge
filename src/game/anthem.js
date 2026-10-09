@@ -1,5 +1,10 @@
 import { AUDIO, assertLevel } from './config.js';
 
+export function anthemLevelAfterMerge(currentLevel, outputLevel) {
+  assertLevel(currentLevel); assertLevel(outputLevel);
+  return Math.max(currentLevel, outputLevel);
+}
+
 export function anthemForLevel(team, level) {
   assertLevel(level);
   return level === 7 && team.childAnthem ? team.childAnthem : team.anthem;

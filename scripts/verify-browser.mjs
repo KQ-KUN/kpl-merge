@@ -39,7 +39,8 @@ async function openGame(page) {
   await page.goto(url);
   await page.locator('#team-grid button').first().waitFor();
   assert.equal(await page.locator('#team-grid button').count(), 12);
-  assert.ok((await page.locator('#pool-caption').textContent()).includes('2026年KPL年度总决赛'));
+  assert.equal(await page.locator('#pool-caption').count(), 0);
+  assert.equal(await page.locator('#picker header p').count(), 0);
   assert.equal(await page.locator('#team-grid [data-team="10007"], #team-grid [data-team="10008"]').count(), 2);
   assert.equal(await page.locator('#team-grid [data-team="10016"], #team-grid [data-team="10903"]').count(), 0);
   assert.equal(await page.evaluate(() => __testRafCount()), 0, '选队前无物理RAF');
@@ -249,8 +250,8 @@ try {
     }
     await page.waitForTimeout(1600);
     await page.evaluate(() => { const p = window.__KPL_MERGE__.current().physics; p.addBall(0, 65, 200); p.addBall(0, 100, 200); });
-    await page.waitForFunction(() => { const app = window.__KPL_MERGE__; return app.current().physics.state().score === 5414 && app.audio().inspect().teamId === app.route()[1].id && app.audio().inspect().playing; });
-    checks.push('L7之后再次合成L1会播放最新L1战歌，按最新合成而非历史最高等级切歌');
+    await page.waitForFunction(() => { const app = window.__KPL_MERGE__; return app.current().physics.state().score === 5414 && app.audio().inspect().teamId === app.route()[7].id && app.audio().inspect().playing; });
+    checks.push('L7之后再次合成L1仍续播L7战歌，战歌等级在本局只升不降');
     for (const id of ['10002', '10003', '10018', '10020', '10031']) {
       await page.locator('#change-team').click(); await page.locator(`#team-grid [data-team="${id}"]`).click(); await page.locator('#start').click();
       await page.evaluate(() => { const p = window.__KPL_MERGE__.current().physics; p.addBall(6, 180, 400); p.addBall(6, 220, 400); });
@@ -284,6 +285,7 @@ try {
     await page.evaluate(() => { const p = window.__KPL_MERGE__.current().physics; p.addBall(0, 65, 320); p.addBall(0, 100, 320); });
     await page.waitForFunction(() => window.__KPL_MERGE__.current().physics.state().score === 64);
     assert.equal(await page.locator('#gain-total').textContent(), '+6');
+    assert.equal(await page.evaluate(() => window.__KPL_MERGE__.audio().inspect().level), 3);
     checks.push('无新合成时逐次+26+32与连锁+58均持续保留，新一轮合成才更新为+6');
     await page.evaluate(() => {
       window.__KPL_MERGE__.restart(); const p = window.__KPL_MERGE__.current().physics;

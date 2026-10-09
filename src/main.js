@@ -5,7 +5,7 @@ import snapshot from './data/teams.json';
 import { validateTeams, assetUrl, loadRouteImages } from './data/team-data.js';
 import { createProgression } from './game/progression.js';
 import { createRenderer } from './game/renderer.js';
-import { createAnthemPlayer } from './game/anthem.js';
+import { createAnthemPlayer, anthemLevelAfterMerge } from './game/anthem.js';
 import { createMergeFeedback } from './game/merge-feedback.js';
 
 const canvas = document.querySelector('#arena'), score = document.querySelector('#score');
@@ -27,7 +27,7 @@ const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
 function playCurrentAnthem() {
   if (disposed || game.hidden || document.hidden || !session || (session.isPaused() && !finalPending) || session.physics.state().phase !== 'playing') return;
-  soundButton.title = `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到下一次合成`;
+  soundButton.title = `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到首次合成更高等级`;
   anthem?.play(route[anthemLevel], anthemLevel);
 }
 function update(state) {
@@ -82,13 +82,14 @@ function restart(rng = Math.random) {
   musicError = null; anthemLevel = AUDIO.initialLevel;
   anthem = createAnthemPlayer({ base, muted, positions: anthemPositions, onStatus: result => {
     musicError = result === 'error' ? '战歌暂时无法播放，可以继续游戏' : null;
-    soundButton.title = musicError ?? `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到下一次合成`;
+    soundButton.title = musicError ?? `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到首次合成更高等级`;
   } });
   previous = {}; announcement = null; mergeFeedback.reset(); feedbackKey = ''; fullscreenError = null; finalPending = false; finalChoice.hidden = true; canvas.inert = false; scoreFeedback.replaceChildren();
   delete score.dataset.pulse; delete gainPanel.dataset.pulse; gainTotal.textContent = '—'; gainLabel.textContent = '连锁得分';
   session = createSession(canvas, { rng, renderer: createRenderer(canvas, { route, images, reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }), onChange: update,
     onDrop: ball => { mergeFeedback.finish(); canvas.dataset.team = route[ball.level].id; }, onStop: () => { if (!finalPending || document.hidden) anthem.stop(); else playCurrentAnthem(); }, onResume: playCurrentAnthem, onMerge(event) {
-    anthemLevel = mergeFeedback.record(event).maxLevel;
+    mergeFeedback.record(event);
+    anthemLevel = anthemLevelAfterMerge(anthemLevel, event.level);
     if (event.level === 7 && !finalPending) {
       finalPending = true;
       document.querySelector('#final-team').textContent = `${route[7].shortName}本命达成`;

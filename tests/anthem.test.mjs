@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import { createAnthemPlayer, anthemForLevel } from '../src/game/anthem.js';
+import { createAnthemPlayer, anthemForLevel, anthemLevelAfterMerge } from '../src/game/anthem.js';
 import { AUDIO, OPENING_LEVEL } from '../src/game/config.js';
 import { createProgression } from '../src/game/progression.js';
 class Media extends EventTarget {
@@ -26,6 +26,40 @@ test('开局音乐与最低阶首球均为L0，LGD/JDG及本命冲突路线播�
     player.destroy();
   }
 });
+test('本局战歌从L0依次解锁到L7，重复及低等级合成不降级、不重载或回退进度', async () => {
+  const { teams } = JSON.parse(await fs.readFile(new URL('../src/data/teams.json', import.meta.url)));
+  const route = createProgression(teams, '10001', () => .1), audio = new Media();
+  const player = createAnthemPlayer({ audioFactory: () => audio });
+  let level = AUDIO.initialLevel;
+  player.play(route[level], level); audio.plays.at(-1).resolve(); await Promise.resolve();
+  const outputs = [1,1,2,1,2,3,1,4,2,5,4,6,2,7,1];
+  const expected = [1,1,2,2,2,3,3,4,4,5,5,6,6,7,7];
+  for (const [index, output] of outputs.entries()) {
+    const priorLevel = level, loads = audio.loads, plays = audio.plays.length;
+    audio.currentTime = 41.5;
+    level = anthemLevelAfterMerge(level, output);
+    player.play(route[level], level); audio.plays.at(-1).resolve(); await Promise.resolve();
+    assert.equal(level, expected[index]); assert.equal(player.inspect().level, level);
+    assert.equal(player.inspect().teamId, route[level].id);
+    if (level === priorLevel) {
+      assert.equal(audio.loads, loads); assert.equal(audio.plays.length, plays); assert.equal(audio.currentTime, 41.5);
+    }
+  }
+  assert.equal(audio.plays.length, 8); assert.equal(player.inspect().variant, 'child');
+  player.stop(); player.play(route[level], level); audio.plays.at(-1).resolve(); await Promise.resolve();
+  assert.equal(player.inspect().level, 7); assert.equal(audio.currentTime, 41.5);
+  player.destroy();
+  const nextGame = createAnthemPlayer({ audioFactory: () => new Media() });
+  nextGame.play(route[AUDIO.initialLevel], AUDIO.initialLevel);
+  assert.equal(nextGame.inspect().level, 0); nextGame.destroy();
+});
+test('战歌推进拒绝非法等级', () => {
+  for (const level of [-1,8,NaN,1.5]) {
+    assert.throws(() => anthemLevelAfterMerge(level, 1));
+    assert.throws(() => anthemLevelAfterMerge(0, level));
+  }
+});
+
 test('12队L0-L6全部使用正常版，仅L7使用本队小孩版，缺少时使用正常版', async () => {
   const { teams } = JSON.parse(await fs.readFile(new URL('../src/data/teams.json', import.meta.url)));
   for (const team of teams) {
