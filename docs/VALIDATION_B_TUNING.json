@@ -1,0 +1,277 @@
+{
+  "stage": "B gameplay tuning",
+  "date": "2026-10-07",
+  "scope": "placeholder physics only; C/D/E/F untouched; no deployment",
+  "versions": {
+    "node": "v24.19.0",
+    "vite": "7.3.6",
+    "matterJs": "0.20.0"
+  },
+  "parameters": {
+    "physics": {
+      "width": 400,
+      "height": 600,
+      "wallThickness": 40,
+      "spawnY": 72,
+      "stepMs": 16.666666666666668,
+      "maxFrameSteps": 5,
+      "dropCooldownMs": 500,
+      "gravity": 1,
+      "gravityScale": 0.001,
+      "restitution": 0.42,
+      "friction": 0.1,
+      "frictionStatic": 0.2,
+      "frictionAir": 0.008,
+      "density": 0.001,
+      "maxSpeed": 12,
+      "positionIterations": 8,
+      "velocityIterations": 8,
+      "settlingMs": 600,
+      "feedbackMs": 1200,
+      "maxFeedback": 32,
+      "impactMs": 180,
+      "mergeEffectMs": 420,
+      "minImpactSpeed": 1.6,
+      "maxImpacts": 40
+    },
+    "radii": [
+      20,
+      28,
+      38,
+      50,
+      64,
+      82,
+      104,
+      132
+    ],
+    "spawnStages": [
+      {
+        "minLevel": 0,
+        "weights": [
+          {
+            "level": 0,
+            "weight": 0.5
+          },
+          {
+            "level": 1,
+            "weight": 0.35
+          },
+          {
+            "level": 2,
+            "weight": 0.15
+          }
+        ]
+      },
+      {
+        "minLevel": 4,
+        "weights": [
+          {
+            "level": 0,
+            "weight": 0.35
+          },
+          {
+            "level": 1,
+            "weight": 0.3
+          },
+          {
+            "level": 2,
+            "weight": 0.25
+          },
+          {
+            "level": 3,
+            "weight": 0.1
+          }
+        ]
+      },
+      {
+        "minLevel": 6,
+        "weights": [
+          {
+            "level": 0,
+            "weight": 0.26
+          },
+          {
+            "level": 1,
+            "weight": 0.26
+          },
+          {
+            "level": 2,
+            "weight": 0.26
+          },
+          {
+            "level": 3,
+            "weight": 0.14
+          },
+          {
+            "level": 4,
+            "weight": 0.08
+          }
+        ]
+      }
+    ],
+    "mergeScores": {
+      "1": 6,
+      "2": 26,
+      "3": 32,
+      "4": 219,
+      "5": 335,
+      "6": 606,
+      "7": 5408
+    },
+    "gameOver": {
+      "dangerY": 90,
+      "hysteresis": 6,
+      "stableDurationMs": 1800,
+      "windowMs": 300,
+      "stableSpeed": 1,
+      "maxTravel": 8,
+      "jitterTravel": 2,
+      "minOverflowFraction": 0.5,
+      "unstableToleranceMs": 200,
+      "spawnGraceMs": 1000,
+      "mergeGraceMs": 500
+    }
+  },
+  "tests": {
+    "passed": 55,
+    "failed": 0,
+    "command": "npm test",
+    "nodeRestartCount": 50,
+    "browserRestartCount": 30
+  },
+  "browser": {
+    "dev": {
+      "stage": "B",
+      "built": false,
+      "url": "http://127.0.0.1:4196/",
+      "browser": "154.0.4258.53",
+      "checks": [
+        "390x844: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "390px 连锁的+26/+32在上方可读，不覆盖球体",
+        "430x932: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "浏览器真实三球碰撞：一次 +26，留下两个球",
+        "浏览器真实连锁：+26/+32=58，留下 L3",
+        "连锁右侧大字+58与独立+26/+32，数字弹动，不覆盖小球",
+        "真实落地后向上回弹，绘制碰撞挤压反馈",
+        "后期队列自然抽到L4：显示/投放一致，墙边大球安全",
+        "两颗 L7 共10816分且继续投放，未产生 L8",
+        "真实动态球长期越线后 Game Over，结束后无 RAF",
+        "浏览器 Restart 30次：旧 world/listener/RAF/feedback 清零；新局仅1个RAF、投放1球",
+        "暂停冻结模拟时钟与RAF，继续恢复",
+        "reduced-motion 下继续物理与计分",
+        "真实浏览器 destroy 取消剩余 RAF、world 和会话资源"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    },
+    "built": {
+      "stage": "B",
+      "built": true,
+      "url": "http://127.0.0.1:4197/",
+      "browser": "154.0.4258.53",
+      "checks": [
+        "390x844: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "430x932: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "构建产物中无调试入口；两次自然投放实际合成 +6；资源无404",
+        "独立构建页面可刷新"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    },
+    "totalChecks": 38,
+    "physicalDevice": false,
+    "screenshotsInspected": [
+      "browser-built/viewport-1440-900.png",
+      "browser-b/viewport-1024-600.png",
+      "browser-b/chain.png",
+      "browser-b/mobile-chain.png",
+      "browser-b/gameover.png"
+    ]
+  },
+  "build": {
+    "passed": true,
+    "command": "npm run build",
+    "assets": [
+      "index-JxCZvcNp.css",
+      "index-wyLAMcEZ.js"
+    ],
+    "debugApiInOutput": false,
+    "analyticsInOutput": false,
+    "teamIconsInOutput": false,
+    "licensesCopied": true
+  },
+  "balance": {
+    "seeds": "1-20",
+    "dropIntervalMs": 500,
+    "activeLimitSeconds": 120,
+    "finalSettleSeconds": 10,
+    "summary": [
+      {
+        "policy": "fixed-center",
+        "runs": 20,
+        "gameOvers": 20,
+        "reachedL7": 14,
+        "medianScore": 12467,
+        "maxLevelRange": [
+          5,
+          7
+        ]
+      },
+      {
+        "policy": "aim-same-level",
+        "runs": 20,
+        "gameOvers": 20,
+        "reachedL7": 17,
+        "medianScore": 14027,
+        "maxLevelRange": [
+          6,
+          7
+        ]
+      }
+    ],
+    "humanAcceptance": false
+  },
+  "limits": [
+    "Mechanical centered drops still reached L7 in 14 of 20 fixed-seed runs; final difficulty remains unconfirmed",
+    "Android/iOS physical-device feel and frame rate unverified",
+    "radii not frozen",
+    "Matter circle polygon approximation",
+    "cleanup is resource ownership evidence, not a heap profiler proof"
+  ],
+  "revision": "full-window side scoring and no halos",
+  "ui": {
+    "desktop": "left score / center arena / right merge gain",
+    "visibleNext": false,
+    "visibleFinalCount": false,
+    "fullscreen": "native browser API; feature detected",
+    "pointerOutline": false,
+    "keyboardOutline": "dark",
+    "mergeHalo": false,
+    "scorePulseMs": 240,
+    "phone": "compact score row; no scrolling needed in tested viewports"
+  },
+  "reference": {
+    "url": "https://www.aladdinx.jp/blogs/news/suika-game-ios",
+    "copiedAssets": false
+  }
+}

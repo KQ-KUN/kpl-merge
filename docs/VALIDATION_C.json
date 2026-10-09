@@ -1,0 +1,110 @@
+{
+  "stage": "C + user-requested drop anthems",
+  "verifiedAt": "2026-10-07T07:33:27.268Z",
+  "versions": {
+    "vite": "7.3.6",
+    "matter": "0.20.0",
+    "node": "v24.19.0",
+    "browser": "154.0.4258.53"
+  },
+  "data": {
+    "season": "KPL2026S2",
+    "teams": 18,
+    "icons": 18,
+    "dedicatedAnthems": 8,
+    "defaultAnthemTeams": 10,
+    "audioFiles": 9,
+    "provenance": "data-provenance.json"
+  },
+  "tests": {
+    "passed": 65,
+    "failed": 0
+  },
+  "build": {
+    "passed": true,
+    "runtimeSourceDependency": false
+  },
+  "standalone": {
+    "directory": "reports/standalone-c-20261007-152747",
+    "npmCi": "passed with normal registry install",
+    "offlineFirstInstall": "failed ENOTCACHED source-map-js; normal install passed",
+    "testsPassed": 65,
+    "buildPassed": true
+  },
+  "browsers": {
+    "dev": {
+      "stage": "C + drop anthems",
+      "built": false,
+      "url": "http://127.0.0.1:4196/",
+      "browser": "154.0.4258.53",
+      "checks": [
+        "390x844: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "390px 连锁的+26/+32在上方可读，不覆盖球体",
+        "430x932: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "投放WB播放2K默认战歌：媒体解码/播放时间推进，无选队前自动播放",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "DYG实际球投放播放DYG专属战歌，暂停清空媒体源",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "浏览器真实三球碰撞：一次 +26，留下两个球",
+        "浏览器真实连锁：+26/+32=58，留下 L3",
+        "连锁右侧大字+58与独立+26/+32，数字弹动，不覆盖小球",
+        "真实落地后向上回弹，绘制碰撞挤压反馈",
+        "后期队列自然抽到L4：显示/投放一致，墙边大球安全",
+        "两颗 L7 共10816分且继续投放，未产生 L8",
+        "真实动态球长期越线后 Game Over，结束后无 RAF",
+        "浏览器 Restart 30次：旧 world/listener/RAF/feedback 清零；新局仅1个RAF、投放1球",
+        "暂停冻结模拟时钟与RAF，继续恢复",
+        "reduced-motion 下继续物理与计分",
+        "真实浏览器 destroy 取消剩余 RAF、world 和会话资源"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    },
+    "rootBuilt": {
+      "url": "http://127.0.0.1:4197/",
+      "checksPassed": 15,
+      "errors": []
+    },
+    "nestedBuilt": {
+      "stage": "C + drop anthems",
+      "built": true,
+      "url": "http://127.0.0.1:4198/nested/merge/",
+      "browser": "154.0.4258.53",
+      "checks": [
+        "390x844: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "430x932: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、移除L7/Next、DPR和44px控件",
+        "投放WB播放2K默认战歌：媒体解码/播放时间推进，无选队前自动播放",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "构建产物中无调试入口；两次自然投放实际合成 +6；资源无404",
+        "独立构建可更换本命，清理旧音源，刷新返回选队"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    }
+  },
+  "physicalDevice": false,
+  "acousticListening": false,
+  "published": false,
+  "limits": [
+    "Short-screen small logos and song cue timing need user/physical-device acceptance",
+    "Fast drops restart anthems from the beginning",
+    "Local canonical snapshot does not prove real-world current membership"
+  ]
+}

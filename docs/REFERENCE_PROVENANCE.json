@@ -1,0 +1,39 @@
+{
+  "auditedAt": "2026-10-06",
+  "references": [
+    {
+      "repo": "lee-JunR/std_Suika",
+      "url": "https://github.com/lee-JunR/std_Suika",
+      "commit": "987284d628d9809a9301d326c1f4cc02dcb96c83",
+      "files": [
+        {
+          "file": "main.js",
+          "sha256": "78b64b11104c94418f088a0e8123a2eebcda0f5cea7259584d350443e0af4f9c"
+        },
+        {
+          "file": "fruits.js",
+          "sha256": "23416ba2413b04db59bac86e7cbbb86c8340c28abce19ba65217402c566a4a55"
+        },
+        {
+          "file": "vite.config.js",
+          "sha256": "212da35156e8c3a4901108ef11b5c33f69b5dab987774e3e1c06c556679c1ce3"
+        },
+        {
+          "file": "package.json",
+          "sha256": "52e5476686bafaa92076f850bff74a321b5864b160534d04a9c6599436d44687"
+        },
+        {
+          "file": "LICENSE",
+          "sha256": "25969cd25bdaabb473ce71edc55f00efb2b537291f09b647d3815ad188444636"
+        }
+      ]
+    },
+    {
+      "repo": "moonfloof/suika-game",
+      "url": "https://github.com/moonfloof/suika-game",
+      "commit": null,
+      "access": "GitHub web source and license read; Raw/API 404; no executable code copied",
+      "webCode": "https://github.com/moonfloof/suika-game/blob/main/index.js?v=4"
+    }
+  ]
+}

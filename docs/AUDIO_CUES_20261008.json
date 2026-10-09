@@ -1,0 +1,108 @@
+{
+  "asOf": "2026-10-08",
+  "method": "Local faster-whisper 1.2.1, Whisper base CPU int8, first 60 seconds and four focused rechecks; low confidence instrumental hallucinations excluded, 0.2-0.3s preroll",
+  "acousticListening": false,
+  "notes": [
+    "Lyrics entry times are estimates and may need a small listening adjustment.",
+    "TES provided normal file includes about 30 seconds of event commentary; its entry skips that commentary.",
+    "Child tracks retain their existing start; original audio bytes are unchanged."
+  ],
+  "cues": [
+    {
+      "id": "10001",
+      "name": "重庆狼队",
+      "variant": "normal",
+      "startSeconds": 36.2,
+      "sha256": "15b106f97c94e15805542a85515293c3d1c70277c91bcb4331edd29d5f6ad9a2",
+      "estimated": true
+    },
+    {
+      "id": "10002",
+      "name": "上海EDG.M",
+      "variant": "normal",
+      "startSeconds": 8,
+      "sha256": "9aaf3fa8f7c9454bbe4213eb12495a106c28f30b4e79ab0f29ca3c33585e2c0f",
+      "estimated": true
+    },
+    {
+      "id": "10003",
+      "name": "北京WB",
+      "variant": "normal",
+      "startSeconds": 15.3,
+      "sha256": "7a94df076d5eeeab01bcf3d16beaee0c85a17a3869bdc18af861f941e64479e1",
+      "estimated": true
+    },
+    {
+      "id": "10005",
+      "name": "KSG",
+      "variant": "normal",
+      "startSeconds": 5.2,
+      "sha256": "f0e76aa42e48a85cd0b0061ab5d6cd8ccd6588ebfe9bdcf3a62d045de69c8ba3",
+      "estimated": true
+    },
+    {
+      "id": "10007",
+      "name": "南通Hero久竞",
+      "variant": "normal",
+      "startSeconds": 2.5,
+      "sha256": "1542c9704b4c089f320ebae728b93789a3888398298222732790808ff276b033",
+      "estimated": true
+    },
+    {
+      "id": "10008",
+      "name": "深圳DYG",
+      "variant": "normal",
+      "startSeconds": 25.9,
+      "sha256": "fe83baf7cec6c259935eb3052b1ec81695fda0ca99b48e4f6229ae0d9ea0b306",
+      "estimated": true
+    },
+    {
+      "id": "10017",
+      "name": "广州TTG",
+      "variant": "normal",
+      "startSeconds": 12.3,
+      "sha256": "8907a473c7647b1228cb5c57916c2b13fa926fd090404d5f9009b41cb64d445a",
+      "estimated": true
+    },
+    {
+      "id": "10018",
+      "name": "济南RW侠",
+      "variant": "normal",
+      "startSeconds": 25.5,
+      "sha256": "36320ed406144a707228557f97161e35f365baff5133f24fdb4f2d9262f104d9",
+      "estimated": true
+    },
+    {
+      "id": "10020",
+      "name": "北京JDG",
+      "variant": "normal",
+      "startSeconds": 20.8,
+      "sha256": "10beaba2f31f843f8c2e2a7077689c320ad6cbc204f160a84602f96eacaaa9ae",
+      "estimated": true
+    },
+    {
+      "id": "10027",
+      "name": "成都AG超玩会",
+      "variant": "normal",
+      "startSeconds": 14.1,
+      "sha256": "c8d506840d48546e8c4b45571e32520eca0f1c8fa077704a4499a7e5f68f921f",
+      "estimated": true
+    },
+    {
+      "id": "10028",
+      "name": "长沙TES.A",
+      "variant": "normal",
+      "startSeconds": 29.7,
+      "sha256": "8b195d5cf1d0214ae5f714e4c3867f068f48e703e59d2b7a65665c4284949d4e",
+      "estimated": true
+    },
+    {
+      "id": "10031",
+      "name": "杭州LGD.NBW",
+      "variant": "normal",
+      "startSeconds": 10.1,
+      "sha256": "edaa5484595e4342afad73e935dec9a91667e8348202a597965bbaddd4eaa3c3",
+      "estimated": true
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "stage": "B",
+  "date": "2026-10-06",
+  "scope": "placeholder-only physics MVP; stopped before C/D/E/F",
+  "versions": {
+    "node": "v24.19.0",
+    "vite": "7.3.6",
+    "matterJs": "0.20.0"
+  },
+  "parameters": {
+    "physics": {
+      "width": 400,
+      "height": 600,
+      "wallThickness": 40,
+      "spawnY": 36,
+      "stepMs": 16.666666666666668,
+      "maxFrameSteps": 5,
+      "dropCooldownMs": 500,
+      "gravity": 1,
+      "gravityScale": 0.001,
+      "restitution": 0.12,
+      "friction": 0.08,
+      "frictionStatic": 0.2,
+      "frictionAir": 0.006,
+      "density": 0.001,
+      "maxSpeed": 12,
+      "positionIterations": 8,
+      "velocityIterations": 8,
+      "settlingMs": 600,
+      "feedbackMs": 800,
+      "maxFeedback": 32
+    },
+    "gameOver": {
+      "dangerY": 90,
+      "hysteresis": 6,
+      "stableDurationMs": 1800,
+      "windowMs": 300,
+      "stableSpeed": 1,
+      "maxTravel": 8,
+      "jitterTravel": 2,
+      "minOverflowFraction": 0.5,
+      "unstableToleranceMs": 200,
+      "spawnGraceMs": 1000,
+      "mergeGraceMs": 500
+    },
+    "radii": [
+      10.64516129032258,
+      15.483870967741936,
+      19.677419354838708,
+      22.258064516129032,
+      28.70967741935484,
+      36.774193548387096,
+      41.61290322580645,
+      50.32258064516129
+    ],
+    "spawnWeights": [
+      {
+        "level": 0,
+        "weight": 0.5
+      },
+      {
+        "level": 1,
+        "weight": 0.35
+      },
+      {
+        "level": 2,
+        "weight": 0.15
+      }
+    ],
+    "mergeScores": {
+      "1": 6,
+      "2": 26,
+      "3": 32,
+      "4": 219,
+      "5": 335,
+      "6": 606,
+      "7": 5408
+    }
+  },
+  "tests": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "stageA": 7,
+    "stageB": 38,
+    "realMatter": true,
+    "nodeRestartCount": 50,
+    "browserRestartCount": 30
+  },
+  "browser": {
+    "engine": "154.0.4258.53",
+    "devChecks": 14,
+    "builtChecks": 8,
+    "viewports": [
+      390,
+      430,
+      768,
+      1440
+    ],
+    "touch": "Chromium CDP emulation",
+    "errors": [],
+    "physicalDevice": false
+  },
+  "build": {
+    "passed": true,
+    "debugApiInOutput": false,
+    "codeAssets": [
+      "index-8N1YXw_D.css",
+      "index-JHq5IDQt.js"
+    ],
+    "licensesCopied": true,
+    "runtimeDataDependencies": []
+  },
+  "limits": [
+    "Android/iOS real-device feel and frame rate unverified",
+    "radii not frozen",
+    "Matter circle polygon approximation",
+    "long-session dense stack performance and feel remain tuning risks",
+    "cleanup evidence is ownership/resource counts, not a heap-profiler proof"
+  ]
+}

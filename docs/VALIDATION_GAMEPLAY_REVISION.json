@@ -1,0 +1,33 @@
+{
+  "asOf": "2026-10-08",
+  "scope": "lowest LGD/JDG + delayed L2 + persistent terms + highest chain anthem + lyrics entry + final dialog",
+  "tests": {
+    "passed": 89,
+    "failed": 0
+  },
+  "build": {
+    "passed": true,
+    "vite": "7.3.6",
+    "matter": "0.20.0",
+    "bundle": "index-B2RZf8-M.js"
+  },
+  "browser": {
+    "version": "154.0.4258.62",
+    "devChecks": 49,
+    "builtChecks": 24,
+    "errors": [],
+    "devResults": "reports/browser-gameplay-revision/results.json",
+    "builtResults": "reports/browser-gameplay-revision-built/results.json"
+  },
+  "audio": {
+    "normalCueCount": 12,
+    "decodedAudioPerRun": 20,
+    "uploaded": false,
+    "originalMediaModified": false,
+    "acousticListening": false,
+    "lyricStartTimesEstimated": true,
+    "initialLevel": 0
+  },
+  "physicalDevice": false,
+  "published": false
+}

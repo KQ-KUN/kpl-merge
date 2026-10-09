@@ -1,0 +1,314 @@
+{
+  "verifiedAt": "2026-10-08T13:20:10.386Z",
+  "seasonId": "KPL2026S3",
+  "catalog": {
+    "path": "../app/data/team_anthems.json",
+    "sha256": "4457e5dc535545fc8b847d2330c3f19b2fadcd5b8229fc9db18f6066f443a6a0",
+    "normalTeams": 13,
+    "childTeams": 9,
+    "importedNormal": 13,
+    "importedChild": 1,
+    "existingChild": 8,
+    "fullDecodeCount": 22,
+    "desktopSourcesPreserved": true,
+    "lgdRemux": {
+      "kind": "remux",
+      "audioCodec": "copy",
+      "sourceContainer": "aac",
+      "targetContainer": "m4a"
+    }
+  },
+  "game": {
+    "normalCount": 12,
+    "childCount": 8,
+    "files": 20,
+    "bytes": 66505007,
+    "rule": "start L1 normal; latest merge L1-L6 normal; L7 child if present else own normal; no default anthem",
+    "fallbackTeams": [
+      {
+        "id": "10003",
+        "name": "北京WB"
+      },
+      {
+        "id": "10018",
+        "name": "济南RW侠"
+      },
+      {
+        "id": "10020",
+        "name": "北京JDG"
+      },
+      {
+        "id": "10031",
+        "name": "杭州LGD.NBW"
+      }
+    ]
+  },
+  "tests": {
+    "command": "npm test",
+    "passed": 79,
+    "failed": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "passed": true,
+    "vite": "7.3.6",
+    "matter": "0.20.0"
+  },
+  "browser": {
+    "dev": {
+      "stage": "C: normal anthems + L7 child variant or own normal fallback",
+      "built": false,
+      "url": "http://127.0.0.1:4196/",
+      "browser": "154.0.4258.62",
+      "decodedAudio": [
+        {
+          "resource": "team-audio/normal/10001.m4a",
+          "duration": 229.715011
+        },
+        {
+          "resource": "team-audio/child/10001.m4a",
+          "duration": 89.49
+        },
+        {
+          "resource": "team-audio/normal/10002.m4a",
+          "duration": 201.920726
+        },
+        {
+          "resource": "team-audio/child/10002.m4a",
+          "duration": 99.14941
+        },
+        {
+          "resource": "team-audio/normal/10003.m4a",
+          "duration": 215.20254
+        },
+        {
+          "resource": "team-audio/normal/10005.m4a",
+          "duration": 165.233197
+        },
+        {
+          "resource": "team-audio/child/10005.m4a",
+          "duration": 81.083991
+        },
+        {
+          "resource": "team-audio/normal/10007.m4a",
+          "duration": 171.154286
+        },
+        {
+          "resource": "team-audio/child/10007.m4a",
+          "duration": 86.308005
+        },
+        {
+          "resource": "team-audio/normal/10008.m4a",
+          "duration": 197.114195
+        },
+        {
+          "resource": "team-audio/child/10008.m4a",
+          "duration": 91.069002
+        },
+        {
+          "resource": "team-audio/normal/10017.m4a",
+          "duration": 171.618685
+        },
+        {
+          "resource": "team-audio/child/10017.m4a",
+          "duration": 94.25
+        },
+        {
+          "resource": "team-audio/normal/10018.mp3",
+          "duration": 214.221927
+        },
+        {
+          "resource": "team-audio/normal/10020.m4a",
+          "duration": 256.487619
+        },
+        {
+          "resource": "team-audio/normal/10027.m4a",
+          "duration": 222.005986
+        },
+        {
+          "resource": "team-audio/child/10027.m4a",
+          "duration": 107.137007
+        },
+        {
+          "resource": "team-audio/normal/10028.mp3",
+          "duration": 143.40644
+        },
+        {
+          "resource": "team-audio/child/10028.m4a",
+          "duration": 71.841995
+        },
+        {
+          "resource": "team-audio/normal/10031.m4a",
+          "duration": 228.554014
+        }
+      ],
+      "checks": [
+        "12首正常版和8首小孩版全部真实浏览器解码、播放时钟推进；MP3/M4A正常",
+        "四张封面队徽首次加载失败后各重试一次，12张真实PNG全部显示",
+        "390x844: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "390px 连锁的+26/+32在上方可读，不覆盖球体",
+        "430x932: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "点击开始后直接播放本局L1 KSG正常版战歌，选队封面无自动播放",
+        "投放L0 WB球不会切走开局L1 KSG战歌",
+        "无新合成时持续播放；合成相同L1音源保持播放进度",
+        "整曲结束后原生循环，等待下一次合成期间不会断歌",
+        "取消静音和暂停后继续均立即续播当前合成等级战歌，不等待投球",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "重新随机路线仍只播该路线L1，投下KSG球不切歌，暂停清空媒体源",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "明确的选择战队按钮返回首页，释放旧音源和RAF，再选KSG开始新局",
+        "真实合成L2后播放对应等级战歌并保持，音源实际解码播放",
+        "真实合成L5后播放对应等级战歌并保持，音源实际解码播放",
+        "真实合成L6后播放对应等级战歌并保持，音源实际解码播放",
+        "真实合成L7后播放对应等级战歌并保持，音源实际解码播放",
+        "L7之后再次合成L1会播放最新L1战歌，按最新合成而非历史最高等级切歌",
+        "EDG.M本命L7实际播放小孩版（新增EDG.M），无默认曲",
+        "WB本命L7实际播放本队正常版回退，无默认曲",
+        "RW侠本命L7实际播放本队正常版回退，无默认曲",
+        "JDG本命L7实际播放本队正常版回退，无默认曲",
+        "LGD本命L7实际播放本队正常版回退，无默认曲",
+        "浏览器真实三球碰撞：一次 +26，留下两个球",
+        "浏览器真实连锁：+26/+32=58，留下 L3",
+        "L1→L2→L3真实连锁后持续播放最后合成的L3战歌",
+        "连锁右侧大字+58与独立+26/+32，数字弹动，不覆盖小球",
+        "无新合成时总分58和上次连锁+58保持，浮分过期后新合成才更新为+6",
+        "真实落地后向上回弹，绘制碰撞挤压反馈",
+        "后期队列自然抽到L4：显示/投放一致，墙边大球安全",
+        "两颗 L7 共10816分且继续投放，未产生 L8",
+        "真实动态球长期越线后 Game Over，结束后无 RAF",
+        "浏览器 Restart 30次：旧 world/listener/RAF/feedback 清零；新局仅1个RAF、投放1球",
+        "暂停冻结模拟时钟与RAF，继续恢复",
+        "reduced-motion 下继续物理与计分",
+        "真实浏览器 destroy 取消剩余 RAF、world 和会话资源"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    },
+    "built": {
+      "stage": "C: normal anthems + L7 child variant or own normal fallback",
+      "built": true,
+      "url": "http://127.0.0.1:4197/",
+      "browser": "154.0.4258.62",
+      "decodedAudio": [
+        {
+          "resource": "team-audio/normal/10001.m4a",
+          "duration": 229.715011
+        },
+        {
+          "resource": "team-audio/child/10001.m4a",
+          "duration": 89.49
+        },
+        {
+          "resource": "team-audio/normal/10002.m4a",
+          "duration": 201.920726
+        },
+        {
+          "resource": "team-audio/child/10002.m4a",
+          "duration": 99.14941
+        },
+        {
+          "resource": "team-audio/normal/10003.m4a",
+          "duration": 215.20254
+        },
+        {
+          "resource": "team-audio/normal/10005.m4a",
+          "duration": 165.233197
+        },
+        {
+          "resource": "team-audio/child/10005.m4a",
+          "duration": 81.083991
+        },
+        {
+          "resource": "team-audio/normal/10007.m4a",
+          "duration": 171.154286
+        },
+        {
+          "resource": "team-audio/child/10007.m4a",
+          "duration": 86.308005
+        },
+        {
+          "resource": "team-audio/normal/10008.m4a",
+          "duration": 197.114195
+        },
+        {
+          "resource": "team-audio/child/10008.m4a",
+          "duration": 91.069002
+        },
+        {
+          "resource": "team-audio/normal/10017.m4a",
+          "duration": 171.618685
+        },
+        {
+          "resource": "team-audio/child/10017.m4a",
+          "duration": 94.25
+        },
+        {
+          "resource": "team-audio/normal/10018.mp3",
+          "duration": 214.221927
+        },
+        {
+          "resource": "team-audio/normal/10020.m4a",
+          "duration": 256.487619
+        },
+        {
+          "resource": "team-audio/normal/10027.m4a",
+          "duration": 222.005986
+        },
+        {
+          "resource": "team-audio/child/10027.m4a",
+          "duration": 107.137007
+        },
+        {
+          "resource": "team-audio/normal/10028.mp3",
+          "duration": 143.40644
+        },
+        {
+          "resource": "team-audio/child/10028.m4a",
+          "duration": 71.841995
+        },
+        {
+          "resource": "team-audio/normal/10031.m4a",
+          "duration": 228.554014
+        }
+      ],
+      "checks": [
+        "12首正常版和8首小孩版全部真实浏览器解码、播放时钟推进；MP3/M4A正常",
+        "四张封面队徽首次加载失败后各重试一次，12张真实PNG全部显示",
+        "390x844: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "390px 整局不需滚动，分数与当前preview同时可见",
+        "430x932: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "768x900: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1440x900: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1366x768: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1024x600: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "1920x1080: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "390x667: 游戏箱完整可见、记分无重叠、游戏中心/选择战队可见、DPR和44px控件",
+        "点击开始后直接播放本局L1 KSG正常版战歌，选队封面无自动播放",
+        "投放L0 WB球不会切走开局L1 KSG战歌",
+        "无新合成时持续播放；合成相同L1音源保持播放进度",
+        "整曲结束后原生循环，等待下一次合成期间不会断歌",
+        "取消静音和暂停后继续均立即续播当前合成等级战歌，不等待投球",
+        "鼠标 hover/释放投放、键盘横移/Space 投放、Restart",
+        "全屏按钮进入/退出正常，指针投放无蓝圈、键盘深色焦点保留",
+        "390px CDP 触控拖动/松手投放；页面 scrollY 不变，球在墙内",
+        "明确的选择战队按钮返回首页，释放旧音源和RAF，再选KSG开始新局",
+        "构建产物中无调试入口；两次自然投放实际合成 +6；资源无404",
+        "实际构建中没有新合成时，总分与上次合成+6持续保留",
+        "独立构建可更换本命，清理旧音源，刷新返回选队"
+      ],
+      "errors": [],
+      "physicalDevice": false
+    }
+  },
+  "physicalDevice": false,
+  "acousticListening": false,
+  "published": false
+}

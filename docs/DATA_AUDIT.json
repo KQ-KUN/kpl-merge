@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-05T16:34:17.321Z",
+  "asOf": "2026-10-06",
+  "source": {
+    "repo": "KQ-KUN/kpl2k",
+    "commit": "e6d65d36a03823b1be7cfd0abc206c1c676e764c",
+    "relevantDirty": false,
+    "files": {
+      "data/processed/seasons.json": "c6645f98bf1345d121dcfd1e4c24ff3a9da3526fe429d14561ced5ad258f8dfa",
+      "data/processed/formats.json": "d1412e99316d440986cd7ea8183c668f07a0ad4ea4fed7ca17fbdaaf8d4e0328",
+      "data/processed/franchises.json": "3bb3bea7aa2385d8c9ecc9130c6134ba9ac73d9cbe2f3246deb761dc58d1e763",
+      "app/data/team_icons.json": "7e8a8c48049b421293e452b63b63d321ab2aa59821b2a5ee204c16738cacaac8",
+      "app/data/manifest.json": "ebc5856917ba2648c5e1c2190423313b6ae8f19d9a45df68b12fe49488b0d512",
+      "tools/build_web.py": "aac7ac67f261121b7dce2a6fb37dbc9ec42cf1949f9376de070a76666bc79d40"
+    }
+  },
+  "selection": {
+    "rule": "latest-started-KPL-regular-season-with-played-matches; grouped-and-played IDs; unique current canonical identity; valid local PNG and icon index",
+    "seasonId": "KPL2026S2",
+    "seasonName": "2026年KPL夏季赛",
+    "seasonStart": "2026-06-17",
+    "candidateCount": 18,
+    "eligibleCount": 18
+  },
+  "existingDisplayPool": {
+    "field": "app/data/manifest.json:teams2026",
+    "sourceSeason": "KPL2026S1",
+    "evidence": "tools/build_web.py:262 explicitly selects formats KPL2026S1",
+    "count": 18,
+    "onlyInDisplayPool": [
+      "10601",
+      "10903"
+    ],
+    "onlyInLatestSeason": [
+      "10910",
+      "12202"
+    ]
+  },
+  "teams": [
+    {
+      "id": "10001",
+      "name": "重庆狼队",
+      "shortName": "狼队",
+      "icon": "/team-icons/10001.png",
+      "asset": {
+        "source": "app/assets/team_icons/10001.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 13143,
+        "sha256": "6aae8160e14ffe24c20579f495ec6ff58dfef8896974c98f4f77fbe37cdfb4a5",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "a786a7f026eab1a3fc52bb2901d32aced6acfad33f0f213768d8fcf75cd258c1",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10002",
+      "name": "上海EDG.M",
+      "shortName": "EDG.M",
+      "icon": "/team-icons/10002.png",
+      "asset": {
+        "source": "app/assets/team_icons/10002.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5981,
+        "sha256": "4c859543e78efdc61ab81eae0db6963b0e89793f541f391337ee57695ad8794d",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "c5f0dd6dfe09ff4c184a98757b4b180c7f0579c056473ae073ce1522dd222e04",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10003",
+      "name": "北京WB",
+      "shortName": "WB",
+      "icon": "/team-icons/10003.png",
+      "asset": {
+        "source": "app/assets/team_icons/10003.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 25648,
+        "sha256": "25c6f8aebbfa99ccc63386219fb5512afa53c0c9ee137b8a5b5cf04dd137af2e",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "d0c6f5e51173c80badf58dbe44981b8f9cc9275bf68808a3292e0e54d20ecb27",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10005",
+      "name": "KSG",
+      "shortName": "KSG",
+      "icon": "/team-icons/10005.png",
+      "asset": {
+        "source": "app/assets/team_icons/10005.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5916,
+        "sha256": "a57b5a2960367afcc0ee0ae591767a836dd871a83a2b87f9ed45ab31fce2a069",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "f7b5cdadea5513ad680eca2717ce9e84789c1dac5e7cfdf8922bbc483d0562c4",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10006",
+      "name": "武汉eStarPro",
+      "shortName": "ES",
+      "icon": "/team-icons/10006.png",
+      "asset": {
+        "source": "app/assets/team_icons/10006.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 12003,
+        "sha256": "91fff1592b4d12226cf8f67fc2bcc4a34848fbe1660e388266483b13cc4ce3f5",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "f3f587203d60ae17cbc416d1f314b79dc375cdbf5ec89af2648f7570bb3ad1c5",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10007",
+      "name": "南通Hero久竞",
+      "shortName": "Hero",
+      "icon": "/team-icons/10007.png",
+      "asset": {
+        "source": "app/assets/team_icons/10007.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 8187,
+        "sha256": "ebb62ed4a3b156490762c4caf50b6920abfd29b295ffb2addc4f0b3778324801",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "7637f585ecca3c48cae8afc999f07b93912f09008aee90f594f86c34fdb284ee",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10008",
+      "name": "深圳DYG",
+      "shortName": "DYG",
+      "icon": "/team-icons/10008.png",
+      "asset": {
+        "source": "app/assets/team_icons/10008.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 20623,
+        "sha256": "e7654d6bf19739657ab78fe1733a2d95dec73733e7af925c52f0be8594dcf303",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "5afa1dbaa1f1bc5f0fa464f232be1516b593203f466890bd0a2641bf5f13a019",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10009",
+      "name": "上海RNG.M",
+      "shortName": "RNG.M",
+      "icon": "/team-icons/10009.png",
+      "asset": {
+        "source": "app/assets/team_icons/10009.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 6148,
+        "sha256": "41af9ce1168392e61cf1808924ea07aec66e836d004b9e69bfa9f4ab5f03264f",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "b4b9b1d9593cf9352a733e28ef6b3ab07b754126fe966892cdf2af4526eefa8d",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10010",
+      "name": "西安WE",
+      "shortName": "WE",
+      "icon": "/team-icons/10010.png",
+      "asset": {
+        "source": "app/assets/team_icons/10010.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 6353,
+        "sha256": "ff5e816ca5fcb397d0d7ea6ced050134b39be87b65cbc346d80405e2d79981a3",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "02092334fc39cea48b44950dd76e530c5d957d8a78f4dd68c516e7359af66f35",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10016",
+      "name": "佛山DRG",
+      "shortName": "DRG",
+      "icon": "/team-icons/10016.png",
+      "asset": {
+        "source": "app/assets/team_icons/10016.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 9756,
+        "sha256": "63caa46125349e5b26b90071113358a05b4af5d4376912f15dfc989e3ebb933c",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "654d9d8459146173350aeb3455a4d4288802ded5bee9fe8b03cfb577ebe81a70",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10017",
+      "name": "广州TTG",
+      "shortName": "TTG",
+      "icon": "/team-icons/10017.png",
+      "asset": {
+        "source": "app/assets/team_icons/10017.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 21183,
+        "sha256": "2033a0a7467e4875e04a9d7a81d87ea65c63164931d79eb2c71882400ff81e7b",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "351b3686a4311421bfa25ceb0e097d0f315ff676adb4242f11fa099ded8b9ba0",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10018",
+      "name": "济南RW侠",
+      "shortName": "RW侠",
+      "icon": "/team-icons/10018.png",
+      "asset": {
+        "source": "app/assets/team_icons/10018.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 7431,
+        "sha256": "0659c65478fd0db369b84b343ec95d98f5965111a4f9c3fec6b415c975c8588c",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "2b6954a547be6ce57dbcd0940b51ea0edd6ae78cd70d98436de8c5fba231229a",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10020",
+      "name": "北京JDG",
+      "shortName": "JDG",
+      "icon": "/team-icons/10020.png",
+      "asset": {
+        "source": "app/assets/team_icons/10020.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5042,
+        "sha256": "8ee07d74aaf39d1e3a10c06a01e1c1159b005836970c9db5f345b964768182e0",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "ab427140e07eeeb3d440828129c8f77624b93313563329e3d9a7f2b53cf3fe11",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10027",
+      "name": "成都AG超玩会",
+      "shortName": "AG",
+      "icon": "/team-icons/10027.png",
+      "asset": {
+        "source": "app/assets/team_icons/10027.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 6613,
+        "sha256": "c3c73d497927f23ccbb570f2aa17b462828360604fb688c2aed7daad7798724f",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "4f2134aaf71cd26a9d1deb6da45c65d0c8336dff926e1b69ca48143fd6e24f9e",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10028",
+      "name": "长沙TES.A",
+      "shortName": "TES.A",
+      "icon": "/team-icons/10028.png",
+      "asset": {
+        "source": "app/assets/team_icons/10028.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5899,
+        "sha256": "877d1f6c48098d0ab453845a1425cad5969df97e302cda5377980200ce6cbad8",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "cc4a631a90ad43f8597ba5e30df9652fbc7909b4a5e3b9562bee6fc0ef091f44",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10031",
+      "name": "杭州LGD.NBW",
+      "shortName": "LGD",
+      "icon": "/team-icons/10031.png",
+      "asset": {
+        "source": "app/assets/team_icons/10031.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 18596,
+        "sha256": "0434862fd7d3544ba6f4759bc2586de787832f11384453b50cdff718010c585b",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "61e27beb9aa96331b7a3207c0a608b4ac5377c9b917d30ad42ed4d78eaca1fdd",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10910",
+      "name": "WST",
+      "shortName": "WST",
+      "icon": "/team-icons/10910.png",
+      "asset": {
+        "source": "app/assets/team_icons/10910.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 15705,
+        "sha256": "04d6c9f3bc7aef73f98d2d080505c802fd198fe8c24e08bc825a87be5935ed42",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "1ac095964f12662f23b20005acfa6cd82c4809ec8e4d9fb870e9467fe44e791f",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "12202",
+      "name": "SYG",
+      "shortName": "SYG",
+      "icon": "/team-icons/12202.png",
+      "asset": {
+        "source": "app/assets/team_icons/12202.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 9991,
+        "sha256": "b54a17ff1a6e1e80e5a8155422ee27335c88ba2b56db2498c217c21aab1f3936",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "d18e9dd52a1143b31f6e83811f2943f181e140e341a404940ae67ed616896e76",
+        "matchesIndex": false
+      }
+    }
+  ],
+  "excluded": [],
+  "limitations": [
+    "本地最新可用赛季快照，不是现实当天活跃名单证明。",
+    "名称/身份原样来自 canonical，不校正现实品牌变化。",
+    "PNG CRC/压缩结构检查不替代浏览器视觉验收。",
+    "队徽品牌权利不由参考代码许可证授权。"
+  ]
+}

@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-08T14:01:16.047Z",
+  "asOf": "2026-10-08",
+  "source": {
+    "repo": "KQ-KUN/kpl2k",
+    "commit": "e6d65d36a03823b1be7cfd0abc206c1c676e764c",
+    "relevantDirty": true,
+    "files": {
+      "data/processed/seasons.json": "c6645f98bf1345d121dcfd1e4c24ff3a9da3526fe429d14561ced5ad258f8dfa",
+      "data/processed/formats.json": "d1412e99316d440986cd7ea8183c668f07a0ad4ea4fed7ca17fbdaaf8d4e0328",
+      "data/processed/franchises.json": "3bb3bea7aa2385d8c9ecc9130c6134ba9ac73d9cbe2f3246deb761dc58d1e763",
+      "app/data/team_icons.json": "7e8a8c48049b421293e452b63b63d321ab2aa59821b2a5ee204c16738cacaac8",
+      "app/data/manifest.json": "ebc5856917ba2648c5e1c2190423313b6ae8f19d9a45df68b12fe49488b0d512",
+      "tools/build_web.py": "482b8bb247ee8cf86168237e38de09911a78ffa2cadaf7630818e29b37cf09f1"
+    }
+  },
+  "selection": {
+    "pool": "annual",
+    "rule": "explicit KPL2026S3 official opening-stage roster; 6 masters + 6 elite; exactly 12 unique canonical-name matches with local icons",
+    "seasonId": "KPL2026S3",
+    "seasonName": "2026年KPL年度总决赛",
+    "seasonStart": "2026-10-02",
+    "candidateCount": 12,
+    "eligibleCount": 12
+  },
+  "existingDisplayPool": {
+    "field": "app/data/manifest.json:teams2026",
+    "sourceSeason": "KPL2026S1",
+    "evidence": "tools/build_web.py:262 explicitly selects formats KPL2026S1",
+    "count": 18,
+    "onlyInDisplayPool": [
+      "10601",
+      "10903"
+    ],
+    "onlyInLatestSeason": [
+      "10910",
+      "12202"
+    ]
+  },
+  "teams": [
+    {
+      "id": "10001",
+      "name": "重庆狼队",
+      "shortName": "狼队",
+      "icon": "/team-icons/10001.png",
+      "asset": {
+        "source": "app/assets/team_icons/10001.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 13143,
+        "sha256": "6aae8160e14ffe24c20579f495ec6ff58dfef8896974c98f4f77fbe37cdfb4a5",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "a786a7f026eab1a3fc52bb2901d32aced6acfad33f0f213768d8fcf75cd258c1",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10002",
+      "name": "上海EDG.M",
+      "shortName": "EDG.M",
+      "icon": "/team-icons/10002.png",
+      "asset": {
+        "source": "app/assets/team_icons/10002.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5981,
+        "sha256": "4c859543e78efdc61ab81eae0db6963b0e89793f541f391337ee57695ad8794d",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "c5f0dd6dfe09ff4c184a98757b4b180c7f0579c056473ae073ce1522dd222e04",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10003",
+      "name": "北京WB",
+      "shortName": "WB",
+      "icon": "/team-icons/10003.png",
+      "asset": {
+        "source": "app/assets/team_icons/10003.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 25648,
+        "sha256": "25c6f8aebbfa99ccc63386219fb5512afa53c0c9ee137b8a5b5cf04dd137af2e",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "d0c6f5e51173c80badf58dbe44981b8f9cc9275bf68808a3292e0e54d20ecb27",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10005",
+      "name": "KSG",
+      "shortName": "KSG",
+      "icon": "/team-icons/10005.png",
+      "asset": {
+        "source": "app/assets/team_icons/10005.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5916,
+        "sha256": "a57b5a2960367afcc0ee0ae591767a836dd871a83a2b87f9ed45ab31fce2a069",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "f7b5cdadea5513ad680eca2717ce9e84789c1dac5e7cfdf8922bbc483d0562c4",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10007",
+      "name": "南通Hero久竞",
+      "shortName": "Hero",
+      "icon": "/team-icons/10007.png",
+      "asset": {
+        "source": "app/assets/team_icons/10007.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 8187,
+        "sha256": "ebb62ed4a3b156490762c4caf50b6920abfd29b295ffb2addc4f0b3778324801",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "7637f585ecca3c48cae8afc999f07b93912f09008aee90f594f86c34fdb284ee",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10008",
+      "name": "深圳DYG",
+      "shortName": "DYG",
+      "icon": "/team-icons/10008.png",
+      "asset": {
+        "source": "app/assets/team_icons/10008.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 20623,
+        "sha256": "e7654d6bf19739657ab78fe1733a2d95dec73733e7af925c52f0be8594dcf303",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "5afa1dbaa1f1bc5f0fa464f232be1516b593203f466890bd0a2641bf5f13a019",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10017",
+      "name": "广州TTG",
+      "shortName": "TTG",
+      "icon": "/team-icons/10017.png",
+      "asset": {
+        "source": "app/assets/team_icons/10017.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 21183,
+        "sha256": "2033a0a7467e4875e04a9d7a81d87ea65c63164931d79eb2c71882400ff81e7b",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "351b3686a4311421bfa25ceb0e097d0f315ff676adb4242f11fa099ded8b9ba0",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10018",
+      "name": "济南RW侠",
+      "shortName": "RW侠",
+      "icon": "/team-icons/10018.png",
+      "asset": {
+        "source": "app/assets/team_icons/10018.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 7431,
+        "sha256": "0659c65478fd0db369b84b343ec95d98f5965111a4f9c3fec6b415c975c8588c",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "2b6954a547be6ce57dbcd0940b51ea0edd6ae78cd70d98436de8c5fba231229a",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10020",
+      "name": "北京JDG",
+      "shortName": "JDG",
+      "icon": "/team-icons/10020.png",
+      "asset": {
+        "source": "app/assets/team_icons/10020.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5042,
+        "sha256": "8ee07d74aaf39d1e3a10c06a01e1c1159b005836970c9db5f345b964768182e0",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "ab427140e07eeeb3d440828129c8f77624b93313563329e3d9a7f2b53cf3fe11",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10027",
+      "name": "成都AG超玩会",
+      "shortName": "AG",
+      "icon": "/team-icons/10027.png",
+      "asset": {
+        "source": "app/assets/team_icons/10027.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 6613,
+        "sha256": "c3c73d497927f23ccbb570f2aa17b462828360604fb688c2aed7daad7798724f",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "4f2134aaf71cd26a9d1deb6da45c65d0c8336dff926e1b69ca48143fd6e24f9e",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10028",
+      "name": "长沙TES.A",
+      "shortName": "TES.A",
+      "icon": "/team-icons/10028.png",
+      "asset": {
+        "source": "app/assets/team_icons/10028.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 5899,
+        "sha256": "877d1f6c48098d0ab453845a1425cad5969df97e302cda5377980200ce6cbad8",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "cc4a631a90ad43f8597ba5e30df9652fbc7909b4a5e3b9562bee6fc0ef091f44",
+        "matchesIndex": false
+      }
+    },
+    {
+      "id": "10031",
+      "name": "杭州LGD.NBW",
+      "shortName": "LGD",
+      "icon": "/team-icons/10031.png",
+      "asset": {
+        "source": "app/assets/team_icons/10031.png",
+        "width": 150,
+        "height": 150,
+        "bytes": 18596,
+        "sha256": "0434862fd7d3544ba6f4759bc2586de787832f11384453b50cdff718010c585b",
+        "indexedWidth": 64,
+        "indexedHeight": 64,
+        "indexedSha256": "61e27beb9aa96331b7a3207c0a608b4ac5377c9b917d30ad42ed4d78eaca1fdd",
+        "matchesIndex": false
+      }
+    }
+  ],
+  "excluded": [],
+  "limitations": [
+    "2026年总参赛名单来自已保存的腾讯官方赛季/擂台赛接口快照。",
+    "canonical名称/ID和本地队徽仍来自2K；未修改2K主数据库。",
+    "运行时不联网，维护更新须显式获取/同步新快照。"
+  ],
+  "canonicalSelection": {
+    "pool": "regular",
+    "rule": "latest-started-KPL-regular-season-with-played-matches; grouped-and-played IDs; unique current canonical identity; valid local PNG and icon index",
+    "seasonId": "KPL2026S2",
+    "seasonName": "2026年KPL夏季赛",
+    "seasonStart": "2026-06-17",
+    "candidateCount": 18,
+    "eligibleCount": 18
+  },
+  "officialAnnual": {
+    "snapshot": "docs/annual-2026-source.json",
+    "sha256": "b7580940f4350f2933f5af454b37e0e7215659956f60fdaa9107ddb7e8f17ef7",
+    "retrievedAt": "2026-10-07T09:40:42.444Z",
+    "sources": [
+      {
+        "url": "https://prod.comp.smoba.qq.com/leaguesite/leagues/open",
+        "method": "GET"
+      },
+      {
+        "url": "https://kplshop-op.timi-esports.qq.com/kplow/getSeasonAndStageAndTeamList",
+        "method": "POST",
+        "body": {}
+      },
+      {
+        "url": "https://kplshop-op.timi-esports.qq.com/kplow/getSeasonAndStageAndTeamList",
+        "method": "POST",
+        "body": {
+          "seasonid": "KPL2026S3"
+        }
+      },
+      {
+        "url": "https://kplshop-op.timi-esports.qq.com/kplow/getScheduleList",
+        "method": "POST",
+        "body": {
+          "seasonid": "KPL2026S3"
+        }
+      }
+    ],
+    "mappings": [
+      {
+        "officialId": "KPL2026S3_xq",
+        "officialName": "广州TTG",
+        "canonicalId": "10017"
+      },
+      {
+        "officialId": "KPL2026S3_jc",
+        "officialName": "深圳DYG",
+        "canonicalId": "10008"
+      },
+      {
+        "officialId": "KPL2026S3_ytg",
+        "officialName": "KSG",
+        "canonicalId": "10005"
+      },
+      {
+        "officialId": "KPL2026S3_rw",
+        "officialName": "济南RW侠",
+        "canonicalId": "10018"
+      },
+      {
+        "officialId": "KPL2026S3_ag",
+        "officialName": "成都AG超玩会",
+        "canonicalId": "10027"
+      },
+      {
+        "officialId": "KPL2026S3_hero",
+        "officialName": "南通Hero久竞",
+        "canonicalId": "10007"
+      },
+      {
+        "officialId": "KPL2026S3_ts",
+        "officialName": "北京WB",
+        "canonicalId": "10003"
+      },
+      {
+        "officialId": "KPL2026S3_lgd",
+        "officialName": "杭州LGD.NBW",
+        "canonicalId": "10031"
+      },
+      {
+        "officialId": "KPL2026S3_vg",
+        "officialName": "北京JDG",
+        "canonicalId": "10020"
+      },
+      {
+        "officialId": "KPL2026S3_edg.m",
+        "officialName": "上海EDG.M",
+        "canonicalId": "10002"
+      },
+      {
+        "officialId": "KPL2026S3_qghappy",
+        "officialName": "重庆狼队",
+        "canonicalId": "10001"
+      },
+      {
+        "officialId": "KPL2026S3_topm",
+        "officialName": "长沙TES.A",
+        "canonicalId": "10028"
+      }
+    ]
+  },
+  "audio": {
+    "catalogSource": "app/data/team_anthems.json",
+    "catalogSha256": "522034d6624d4c490ec2580dcfc70d0569d5f72eb961817c18c90f6c2577d0a3",
+    "files": {
+      "normal/10001.m4a": {
+        "source": "app/assets/audio/normal/10001.m4a",
+        "bytes": 6747784,
+        "sha256": "15b106f97c94e15805542a85515293c3d1c70277c91bcb4331edd29d5f6ad9a2",
+        "title": "Born Ready",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 229.715011,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10001.m4a": {
+        "source": "app/assets/audio/狼小孩.m4a",
+        "bytes": 1096697,
+        "sha256": "9e25c78a3b98286d26f3992ecefd617f431b7005a46b4e8fa361989989ac2468",
+        "title": "狼小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 89.49,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10002.m4a": {
+        "source": "app/assets/audio/normal/10002.m4a",
+        "bytes": 2462831,
+        "sha256": "9aaf3fa8f7c9454bbe4213eb12495a106c28f30b4e79ab0f29ca3c33585e2c0f",
+        "title": "EDG.M战歌",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 201.920726,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10002.m4a": {
+        "source": "app/assets/audio/EDGM小孩.m4a",
+        "bytes": 2926894,
+        "sha256": "18e8c74f08b3d1e15ff6cf6cfeb62d9c10e99f513dce66dd14c09a9290a882c0",
+        "title": "EDGM小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 99.14941,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10003.m4a": {
+        "source": "app/assets/audio/normal/10003.m4a",
+        "bytes": 6298947,
+        "sha256": "7a94df076d5eeeab01bcf3d16beaee0c85a17a3869bdc18af861f941e64479e1",
+        "title": "Evolve",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 215.20254,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10005.m4a": {
+        "source": "app/assets/audio/normal/10005.m4a",
+        "bytes": 5339414,
+        "sha256": "f0e76aa42e48a85cd0b0061ab5d6cd8ccd6588ebfe9bdcf3a62d045de69c8ba3",
+        "title": "We Will Be Victorious",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 165.233197,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10005.m4a": {
+        "source": "app/assets/audio/KSG小孩.m4a",
+        "bytes": 990916,
+        "sha256": "c1d3401158283340f1d6511fd3cd8942518c7d28deaa6c11d49e3555b861138e",
+        "title": "KSG小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 81.083991,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10007.m4a": {
+        "source": "app/assets/audio/normal/10007.m4a",
+        "bytes": 5395653,
+        "sha256": "1542c9704b4c089f320ebae728b93789a3888398298222732790808ff276b033",
+        "title": "Will I Make It Out Alive",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 171.154286,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10007.m4a": {
+        "source": "app/assets/audio/HERO小孩.m4a",
+        "bytes": 1060038,
+        "sha256": "85e8db98c51784e3c9c4aec1cda47e40693168981a5709c4482ae57aa0b1018f",
+        "title": "HERO小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 86.308005,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10008.m4a": {
+        "source": "app/assets/audio/normal/10008.m4a",
+        "bytes": 5983445,
+        "sha256": "fe83baf7cec6c259935eb3052b1ec81695fda0ca99b48e4f6229ae0d9ea0b306",
+        "title": "Stand Alone",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 197.114195,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10008.m4a": {
+        "source": "app/assets/audio/DYG小孩.m4a",
+        "bytes": 1114028,
+        "sha256": "bcd3fa4329cdeafa7791cebac111d4826240f8d3b2499ad3925c6adec25dbb48",
+        "title": "DYG小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 91.069002,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10017.m4a": {
+        "source": "app/assets/audio/normal/10017.m4a",
+        "bytes": 5101067,
+        "sha256": "8907a473c7647b1228cb5c57916c2b13fa926fd090404d5f9009b41cb64d445a",
+        "title": "Raising the roof",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 171.618685,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10017.m4a": {
+        "source": "app/assets/audio/TT小孩.m4a",
+        "bytes": 1152501,
+        "sha256": "6ff84360b6183b01e9f73b8477e2ae5ed3cadc10554db9a0ad8891ea0d6f0d23",
+        "title": "TT小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 94.25,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10018.mp3": {
+        "source": "app/assets/audio/normal/10018.mp3",
+        "bytes": 3431081,
+        "sha256": "36320ed406144a707228557f97161e35f365baff5133f24fdb4f2d9262f104d9",
+        "title": "RW侠战歌",
+        "variant": "normal",
+        "media": {
+          "extension": ".mp3",
+          "durationSeconds": 214.221927,
+          "container": "mp3",
+          "codec": "mp3",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10020.m4a": {
+        "source": "app/assets/audio/normal/10020.m4a",
+        "bytes": 3134028,
+        "sha256": "10beaba2f31f843f8c2e2a7077689c320ad6cbc204f160a84602f96eacaaa9ae",
+        "title": "JDG战歌",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 256.487619,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10027.m4a": {
+        "source": "app/assets/audio/normal/10027.m4a",
+        "bytes": 5691985,
+        "sha256": "c8d506840d48546e8c4b45571e32520eca0f1c8fa077704a4499a7e5f68f921f",
+        "title": "Heroes",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 222.005986,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10027.m4a": {
+        "source": "app/assets/audio/红小孩.m4a",
+        "bytes": 1311877,
+        "sha256": "703924370048216fee7b625c58ef45160b23df40f9e3dd3783e26946b75be4be",
+        "title": "红小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 107.137007,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10028.mp3": {
+        "source": "app/assets/audio/normal/10028.mp3",
+        "bytes": 3567796,
+        "sha256": "8b195d5cf1d0214ae5f714e4c3867f068f48e703e59d2b7a65665c4284949d4e",
+        "title": "TES.A战歌",
+        "variant": "normal",
+        "media": {
+          "extension": ".mp3",
+          "durationSeconds": 143.40644,
+          "container": "mp3",
+          "codec": "mp3",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "child/10028.m4a": {
+        "source": "app/assets/audio/突然的陀螺小孩.m4a",
+        "bytes": 885128,
+        "sha256": "ac1923a09ddf7831235a7e8237cc7678356a7754b18ce452829e83529934240d",
+        "title": "突然的陀螺小孩",
+        "variant": "child",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 71.841995,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": null
+      },
+      "normal/10031.m4a": {
+        "source": "app/assets/audio/normal/10031.m4a",
+        "bytes": 2812897,
+        "sha256": "edaa5484595e4342afad73e935dec9a91667e8348202a597965bbaddd4eaa3c3",
+        "title": "LGD.NBW战歌",
+        "variant": "normal",
+        "media": {
+          "extension": ".m4a",
+          "durationSeconds": 228.554014,
+          "container": "mov,mp4,m4a,3gp,3g2,mj2",
+          "codec": "aac",
+          "sampleRate": 44100,
+          "channels": 2
+        },
+        "processing": {
+          "kind": "remux",
+          "audioCodec": "copy",
+          "sourceContainer": "aac",
+          "targetContainer": "m4a"
+        }
+      }
+    },
+    "normalTeams": [
+      "10001",
+      "10002",
+      "10003",
+      "10005",
+      "10007",
+      "10008",
+      "10017",
+      "10018",
+      "10020",
+      "10027",
+      "10028",
+      "10031"
+    ],
+    "childTeams": [
+      "10001",
+      "10002",
+      "10005",
+      "10007",
+      "10008",
+      "10017",
+      "10027",
+      "10028"
+    ],
+    "defaultTrack": null
+  }
+}

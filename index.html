@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="选择你的本命，沿本局随机队徽路线合成KPL">
+  <link rel="icon" href="data:,">
+  <title>合成KPL · KPL Merge</title>
+</head>
+<body>
+  <section id="picker" class="picker" aria-labelledby="picker-title">
+    <header><a class="hub-link" href="/">游戏中心</a><h1 id="picker-title">选择你的本命战队</h1></header>
+    <div id="team-grid" class="team-grid" role="group" aria-label="本地赛季参赛队伍"></div>
+    <footer><button id="start" disabled>开始合成</button><p id="picker-status" role="status">请选择一支队伍</p></footer>
+  </section>
+  <main class="game" hidden>
+    <header class="topbar"><h1>合成KPL <span lang="en">KPL Merge</span></h1>
+      <div class="toolbar"><button id="sound" aria-label="关闭合成战歌" aria-pressed="true">声音</button><button id="restart" aria-label="清理并重新开始">重开</button><button id="pause" aria-label="暂停物理模拟">暂停</button><button id="fullscreen" aria-label="进入全屏">全屏</button></div>
+    </header>
+    <section class="play-layout" aria-label="合成游戏">
+      <aside class="scoreboard score-panel" aria-label="本局得分"><div class="score-label score-heading"><span>本局得分</span><span class="favorite-target" aria-label="本命战队"><img id="favorite-icon" alt="" width="22" height="22"><span id="favorite-name"></span></span></div><strong id="score">0</strong><nav class="side-nav" aria-label="游戏导航"><a class="hub-link" href="/">游戏中心</a><button id="change-team" aria-label="返回首页选择战队">选择战队</button></nav></aside>
+      <div class="arena-shell"><canvas id="arena" width="400" height="600" tabindex="0" aria-label="物理游戏箱。左右键移动，空格或回车投放。鼠标移动定位并点击，触摸拖动后松手投放。" aria-describedby="controls"></canvas><div id="arena-message" class="arena-message" hidden><strong id="arena-message-title"></strong><span id="arena-message-copy"></span></div></div>
+      <aside class="gain-panel" aria-label="本次合成加分"><div id="score-feedback" class="score-feedback" aria-label="逐次合成加分"></div><div class="gain-summary"><span id="gain-label" class="score-label">连锁得分</span><strong id="gain-total">—</strong></div><p id="status" role="status" aria-live="polite">可投放</p><span class="ready-meter" aria-hidden="true"><i id="ready-fill"></i></span></aside>
+    </section>
+    <p id="controls">鼠标或拖动定位，松手投放。← → 移动，Space / Enter 投放。<br><span class="disclaimer">本局中间队徽随机排列，仅代表球体等级，不代表战队实力、排名或历史成绩。</span></p>
+    <details id="debug-panel" hidden><summary>固定物理场景（开发验证）</summary><div class="debug-buttons">
+      <button data-scene="triple">三球同时接触</button><button data-scene="chain">L1 → L2 → L3</button>
+      <button data-scene="final">合成两个 L7</button><button data-scene="danger">持续越线</button>
+    </div></details>
+  </main>
+  <div id="final-choice" class="final-choice" role="dialog" aria-modal="true" aria-labelledby="final-team" hidden><div class="final-card"><img id="final-icon" alt="" width="96" height="96"><h2 id="final-team">本命达成</h2><p>已合成本命战队！</p><div class="final-actions"><button id="final-continue">继续游玩</button><button id="final-restart">再来一局</button></div></div></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

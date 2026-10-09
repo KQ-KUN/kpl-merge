@@ -1,0 +1,37 @@
+{
+  "package": "A",
+  "date": "2026-10-06",
+  "auditTests": {
+    "passed": 7,
+    "failed": 0,
+    "scope": "数据审计工具；不是游戏逻辑/物理测试"
+  },
+  "data": {
+    "season": "KPL2026S2",
+    "candidates": 18,
+    "eligible": 18,
+    "excluded": 0,
+    "sourceRelevantDirty": false
+  },
+  "images": {
+    "pngStructure": "18/18 CRC+inflate",
+    "pixelDecode": "18/18 Pillow verify+load",
+    "visualGameAcceptance": false
+  },
+  "references": {
+    "stdSuikaCommit": "987284d628d9809a9301d326c1f4cc02dcb96c83",
+    "pinnedFileHashes": 5,
+    "moonfloofCommit": null
+  },
+  "docs": {
+    "localLinksChecked": 7
+  },
+  "unverified": [
+    "physics",
+    "game build",
+    "browser",
+    "physical Android/iOS",
+    "aggregate integration",
+    "production merge route"
+  ]
+}
