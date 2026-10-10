@@ -13,6 +13,8 @@ const status = document.querySelector('#status'), pauseButton = document.querySe
 const scoreFeedback = document.querySelector('#score-feedback');
 const gainPanel = document.querySelector('.gain-panel'), gainTotal = document.querySelector('#gain-total'), gainLabel = document.querySelector('#gain-label');
 const readyFill = document.querySelector('#ready-fill'), fullscreenButton = document.querySelector('#fullscreen');
+const nextPreview = document.querySelector('#next-preview'), nextIcon = document.querySelector('#next-icon');
+const nextName = document.querySelector('#next-name'), nextLevel = document.querySelector('#next-level');
 const arenaMessage = document.querySelector('#arena-message'), arenaTitle = document.querySelector('#arena-message-title'), arenaCopy = document.querySelector('#arena-message-copy');
 const lifetime = new AbortController();
 const teams = validateTeams(snapshot), base = import.meta.env.BASE_URL;
@@ -31,6 +33,14 @@ function playCurrentAnthem() {
   anthem?.play(route[anthemLevel], anthemLevel);
 }
 function update(state) {
+  if (state.next !== previous.next) {
+    const team = route[state.next];
+    nextIcon.src = assetUrl(team.icon, base);
+    nextName.textContent = team.shortName; nextLevel.textContent = `L${state.next}`;
+    nextPreview.dataset.level = String(state.next); nextPreview.dataset.team = team.id;
+    nextPreview.style.setProperty('--next-diameter', String(RADII[state.next] * 2));
+    nextPreview.setAttribute('aria-label', `下一球：${team.shortName}，L${state.next}`);
+  }
   if (state.score !== previous.score) {
     score.textContent = state.score.toLocaleString('en-US'); score.dataset.long = String(score.textContent.length > 6);
     if (state.score > (previous.score ?? 0)) { pulse++; score.dataset.pulse = gainPanel.dataset.pulse = pulse % 2 ? 'a' : 'b'; }
