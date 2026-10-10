@@ -5,12 +5,13 @@ export function anthemLevelAfterMerge(currentLevel, outputLevel) {
   return Math.max(currentLevel, outputLevel);
 }
 
-export function anthemForLevel(team, level) {
+export function anthemForLevel(team, level, mode = 'normal') {
   assertLevel(level);
-  return level === 7 && team.childAnthem ? team.childAnthem : team.anthem;
+  if (!['normal', 'child'].includes(mode)) throw new Error('无效战歌版本');
+  return mode === 'child' && team.childAnthem ? team.childAnthem : team.anthem;
 }
 
-// 每首曲保存独立进度；仅L7用小孩版，缺少时用该队正常版。
+// 版本由全局模式决定；缺少小孩版时回退本队正常版，两版进度独立。
 export function createAnthemPlayer({ base = './', muted = false, audioFactory = () => new Audio(), onStatus = () => {},
   positions = new Map() } = {}) {
   const audio = audioFactory(); audio.preload = 'none'; audio.volume = AUDIO.volume; audio.loop = true;
@@ -36,9 +37,9 @@ export function createAnthemPlayer({ base = './', muted = false, audioFactory = 
   }, { signal: controller.signal });
   audio.addEventListener('error', () => { if (track) { stop(); onStatus('error'); } }, { signal: controller.signal });
   return {
-    play(team, level = AUDIO.initialLevel) {
+    play(team, level = AUDIO.initialLevel, mode = 'normal') {
       if (destroyed || muted) return;
-      const key = anthemForLevel(team, level), variant = level === 7 && team.childAnthem ? 'child' : 'normal';
+      const key = anthemForLevel(team, level, mode), variant = key === team.childAnthem ? 'child' : 'normal';
       if (track?.key === key) { track.teamId = team.id; track.level = level; track.variant = variant; return; }
       stop(); const token = sequence;
       const entry = (variant === 'child' ? team.childAnthemStartSeconds : team.anthemStartSeconds) ?? AUDIO.startSeconds;

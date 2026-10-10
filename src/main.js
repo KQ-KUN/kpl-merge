@@ -20,17 +20,27 @@ const lifetime = new AbortController();
 const teams = validateTeams(snapshot), base = import.meta.env.BASE_URL;
 const picker = document.querySelector('#picker'), game = document.querySelector('.game'), startButton = document.querySelector('#start');
 const soundButton = document.querySelector('#sound'), favoriteName = document.querySelector('#favorite-name'), favoriteIcon = document.querySelector('#favorite-icon');
+const musicVersionButton = document.querySelector('#music-version');
 let selectedId = null, route = null, anthem = null, muted = false, musicError = null;
-let anthemLevel = AUDIO.initialLevel;
+let anthemLevel = AUDIO.initialLevel, musicMode = 'normal';
 const anthemPositions = new Map();
 let session = null, disposed = false, previous = {}, announcement = null;
 const mergeFeedback = createMergeFeedback(), finalChoice = document.querySelector('#final-choice');
 const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
+function updateMusicControls() {
+  musicVersionButton.textContent = musicMode === 'child' ? '小孩版' : '正常版';
+  musicVersionButton.setAttribute('aria-pressed', String(musicMode === 'child'));
+  if (!route) return;
+  const team = route[anthemLevel], child = musicMode === 'child' && team.childAnthem;
+  const fallback = musicMode === 'child' && !team.childAnthem ? '（本队暂无小孩版，使用正常版）' : '';
+  const title = `L${anthemLevel} ${team.shortName}${child ? '小孩版' : '正常版'}战歌${fallback} · 持续到首次合成更高等级`;
+  musicVersionButton.title = title; soundButton.title = musicError ?? title;
+}
 function playCurrentAnthem() {
+  updateMusicControls();
   if (disposed || game.hidden || document.hidden || !session || (session.isPaused() && !finalPending) || session.physics.state().phase !== 'playing') return;
-  soundButton.title = `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到首次合成更高等级`;
-  anthem?.play(route[anthemLevel], anthemLevel);
+  anthem?.play(route[anthemLevel], anthemLevel, musicMode);
 }
 function update(state) {
   if (state.next !== previous.next) {
@@ -89,10 +99,10 @@ function restart(rng = Math.random) {
   const images = loadRouteImages(route, base);
   favoriteName.textContent = route[7].shortName; favoriteIcon.src = assetUrl(route[7].icon, base);
   picker.hidden = true; game.hidden = false;
-  musicError = null; anthemLevel = AUDIO.initialLevel;
+  musicError = null; anthemLevel = AUDIO.initialLevel; musicMode = 'normal';
   anthem = createAnthemPlayer({ base, muted, positions: anthemPositions, onStatus: result => {
     musicError = result === 'error' ? '战歌暂时无法播放，可以继续游戏' : null;
-    soundButton.title = musicError ?? `L${anthemLevel} ${route[anthemLevel].shortName}${anthemLevel === 7 && route[anthemLevel].childAnthem ? '小孩版' : '正常版'}战歌 · 持续到首次合成更高等级`;
+    updateMusicControls();
   } });
   previous = {}; announcement = null; mergeFeedback.reset(); feedbackKey = ''; fullscreenError = null; finalPending = false; finalChoice.hidden = true; canvas.inert = false; scoreFeedback.replaceChildren();
   delete score.dataset.pulse; delete gainPanel.dataset.pulse; gainTotal.textContent = '—'; gainLabel.textContent = '连锁得分';
@@ -137,6 +147,10 @@ document.querySelector('#change-team').addEventListener('click', () => {
   session?.destroy(); anthem?.destroy(); game.hidden = true; picker.hidden = false;
   finalPending = false; finalChoice.hidden = true;
   grid.querySelector(`[data-team="${selectedId}"]`)?.focus({ preventScroll: true });
+}, { signal: lifetime.signal });
+musicVersionButton.addEventListener('click', () => {
+  musicMode = musicMode === 'normal' ? 'child' : 'normal';
+  playCurrentAnthem();
 }, { signal: lifetime.signal });
 soundButton.addEventListener('click', () => {
   muted = !muted; anthem?.setMuted(muted); soundButton.textContent = muted ? '静音' : '声音';

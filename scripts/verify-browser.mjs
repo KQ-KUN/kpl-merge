@@ -240,8 +240,8 @@ try {
     for (const level of [2, 5, 6, 7]) {
       await page.evaluate(level => { window.__KPL_MERGE__.restart(); const p = window.__KPL_MERGE__.current().physics; p.addBall(level - 1, 180, 400); p.addBall(level - 1, 220, 400); }, level);
       await page.waitForFunction(level => { const app = window.__KPL_MERGE__; return app.current().physics.balls().some(ball => ball.level === level) && app.audio().inspect().teamId === app.route()[level].id && app.audio().inspect().playing; }, level);
-      const target = await page.evaluate(level => { const team = window.__KPL_MERGE__.route()[level]; return level === 7 ? team.childAnthem ?? team.anthem : team.anthem; }, level);
-      assert.equal(await page.evaluate(() => window.__KPL_MERGE__.audio().inspect().variant), level === 7 ? 'child' : 'normal');
+      const target = await page.evaluate(level => { const team = window.__KPL_MERGE__.route()[level]; return team.anthem; }, level);
+      assert.equal(await page.evaluate(() => window.__KPL_MERGE__.audio().inspect().variant), 'normal');
       assert.ok(await page.evaluate(target => __testAudio.at(-1).src.endsWith(`/${target}`) && !__testAudio.at(-1).paused, target));
       await page.waitForTimeout(150);
       assert.equal(await page.evaluate(() => window.__KPL_MERGE__.audio().inspect().teamId), await page.evaluate(level => window.__KPL_MERGE__.route()[level].id, level));
@@ -257,11 +257,12 @@ try {
       await page.evaluate(() => { const p = window.__KPL_MERGE__.current().physics; p.addBall(6, 180, 400); p.addBall(6, 220, 400); });
       await page.waitForFunction(id => { const app = window.__KPL_MERGE__; return app.current().physics.state().score === 5408 && app.audio().inspect().teamId === id && app.audio().inspect().level === 7 && app.audio().inspect().playing; }, id);
       const expected = snapshot.teams.find(team => team.id === id);
+      await page.locator('#final-continue').click(); await page.locator('#music-version').click();
+      await page.waitForFunction(() => window.__KPL_MERGE__.audio().inspect().playing);
       assert.ok(await page.evaluate(resource => __testAudio.at(-1).src.endsWith(`/${resource}`), expected.childAnthem ?? expected.anthem));
       assert.equal(await page.evaluate(() => window.__KPL_MERGE__.audio().inspect().variant), expected.childAnthem ? 'child' : 'normal');
       assert.ok(!await page.evaluate(() => __testAudio.at(-1).src.includes('default')));
-      checks.push(`${expected.shortName}本命L7实际播放${expected.childAnthem ? '小孩版（新增EDG.M）' : '本队正常版回退'}，无默认曲`);
-      await page.locator('#final-continue').click();
+      checks.push(`${expected.shortName}本命L7切换小孩版模式后实际播放${expected.childAnthem ? '小孩版' : '本队正常版回退'}，无默认曲`);
     }
     await page.evaluate(() => window.__KPL_MERGE__.loadScene('triple'));
     await page.waitForFunction(() => window.__KPL_MERGE__.current().physics.state().score === 26);

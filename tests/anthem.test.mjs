@@ -45,7 +45,7 @@ test('本局战歌从L0依次解锁到L7，重复及低等级合成不降级、�
       assert.equal(audio.loads, loads); assert.equal(audio.plays.length, plays); assert.equal(audio.currentTime, 41.5);
     }
   }
-  assert.equal(audio.plays.length, 8); assert.equal(player.inspect().variant, 'child');
+  assert.equal(audio.plays.length, 8); assert.equal(player.inspect().variant, 'normal');
   player.stop(); player.play(route[level], level); audio.plays.at(-1).resolve(); await Promise.resolve();
   assert.equal(player.inspect().level, 7); assert.equal(audio.currentTime, 41.5);
   player.destroy();
@@ -60,13 +60,18 @@ test('战歌推进拒绝非法等级', () => {
   }
 });
 
-test('12队L0-L6全部使用正常版，仅L7使用本队小孩版，缺少时使用正常版', async () => {
+test('12队所有等级按统一模式选曲，默认正常版，小孩版缺少时回退本队正常版', async () => {
   const { teams } = JSON.parse(await fs.readFile(new URL('../src/data/teams.json', import.meta.url)));
   for (const team of teams) {
-    for (let level = 0; level < 7; level++) assert.equal(anthemForLevel(team, level), team.anthem);
-    const final = anthemForLevel(team, 7); assert.equal(final, team.childAnthem ?? team.anthem); assert.ok(!final.includes('default'));
+    for (let level = 0; level <= 7; level++) {
+      assert.equal(anthemForLevel(team, level), team.anthem);
+      assert.equal(anthemForLevel(team, level, 'normal'), team.anthem);
+      const child = anthemForLevel(team, level, 'child');
+      assert.equal(child, team.childAnthem ?? team.anthem); assert.ok(!child.includes('default'));
+    }
   }
   for (const level of [-1, 8, NaN]) assert.throws(() => anthemForLevel(teams[0], level));
+  for (const mode of ['auto', null, true]) assert.throws(() => anthemForLevel(teams[0], 0, mode));
 });
 test('按开局/合成指令切换单个音源，实例不自行播放、旧play失败不覆盖新歌', async () => {
   const audio = new Media(), statuses = [], player = createAnthemPlayer({ audioFactory: () => audio, base: '/merge/', onStatus: status => statuses.push(status) });
@@ -114,18 +119,18 @@ test('快速切队保存实际播放进度，各队正常版游标独立', async
 test('同队正常版连续合成保持音源进度，无小孩版的L7也不重载同一正常版', async () => {
   const h = harness(); await h.play(b); h.audio.currentTime = 9.4;
   const before = { plays: h.audio.plays.length, pauses: h.audio.pauses, loads: h.audio.loads };
-  h.player.play(b); h.player.play(b, 7);
+  h.player.play(b); h.player.play(b, 7, 'child');
   assert.equal(h.audio.currentTime, 9.4); assert.equal(h.player.inspect().teamId, '10003');
   assert.equal(h.player.inspect().variant, 'normal'); assert.equal(h.player.inspect().level, 7);
   assert.deepEqual({ plays: h.audio.plays.length, pauses: h.audio.pauses, loads: h.audio.loads }, before);
   h.player.destroy();
 });
-test('本命小孩版与正常版分别保存进度，离开L7切回正常版，再合成本命续播小孩版', async () => {
+test('同一等级切换正常版与小孩版，各自保存进度，再切回时续播', async () => {
   const h = harness(); await h.play(a); h.audio.currentTime = 12.6;
-  h.player.play(a, 7); h.audio.plays.at(-1).resolve(); await Promise.resolve();
+  h.player.play(a, 0, 'child'); h.audio.plays.at(-1).resolve(); await Promise.resolve();
   assert.equal(h.audio.src, './team-audio/child/10001.m4a'); assert.equal(h.player.inspect().variant, 'child'); assert.equal(h.audio.currentTime, 1);
   h.audio.currentTime = 4.5; await h.play(a); assert.equal(h.audio.currentTime, 12.6);
-  h.player.play(a, 7); h.audio.plays.at(-1).resolve(); await Promise.resolve(); assert.equal(h.audio.currentTime, 4.5);
+  h.player.play(a, 0, 'child'); h.audio.plays.at(-1).resolve(); await Promise.resolve(); assert.equal(h.audio.currentTime, 4.5);
   h.player.destroy(); assert.equal(h.positions.get(a.anthem), 12.6); assert.equal(h.positions.get(a.childAnthem), 4.5);
 });
 test('暂停保存真实游标、恢复时续播；destroy释放媒体与监听', async () => {
@@ -154,6 +159,39 @@ test('每队从自己的歌词起点进入，续播和同曲合成保持进度�
   audio.currentTime = .2; audio.dispatchEvent(new Event('timeupdate')); assert.equal(audio.currentTime, 15.4);
   audio.currentTime = 22; player.play(team, 2); assert.equal(audio.currentTime, 22);
   player.stop(); player.play(team, 1); assert.equal(audio.currentTime, 22);
-  player.play(team, 7); assert.equal(audio.currentTime, 4.8);
+  player.play(team, 7, 'child'); assert.equal(audio.currentTime, 4.8);
   assert.equal(player.inspect().listeners, 3); player.destroy(); assert.equal(player.inspect().listeners, 0);
+});
+
+test('小孩版模式随最高合成等级推进，低等级合成保持进度，暂停与静音恢复保留版本', async () => {
+  const { teams } = JSON.parse(await fs.readFile(new URL('../src/data/teams.json', import.meta.url)));
+  const route = createProgression(teams, '10001', () => .1), audio = new Media();
+  const player = createAnthemPlayer({ audioFactory: () => audio });
+  let level = AUDIO.initialLevel;
+  for (const output of [0, 1, 2, 1, 3, 4, 5, 6, 7, 1]) {
+    const prior = level, loads = audio.loads, source = player.inspect().source;
+    audio.currentTime = 41.5; level = anthemLevelAfterMerge(level, output);
+    player.play(route[level], level, 'child'); audio.plays.at(-1).resolve(); await Promise.resolve();
+    assert.equal(audio.src, `./${route[level].childAnthem ?? route[level].anthem}`);
+    assert.equal(player.inspect().variant, route[level].childAnthem ? 'child' : 'normal');
+    if (source && level === prior) { assert.equal(audio.loads, loads); assert.equal(audio.currentTime, 41.5); }
+  }
+  audio.currentTime = 23.5; player.stop(); player.play(route[level], level, 'child');
+  assert.equal(player.inspect().variant, 'child'); assert.equal(audio.currentTime, 23.5);
+  player.setMuted(true); player.play(route[level], level, 'normal'); assert.equal(audio.src, '');
+  player.setMuted(false); player.play(route[level], level, 'child');
+  assert.equal(player.inspect().variant, 'child'); assert.equal(audio.currentTime, 23.5);
+  player.destroy();
+});
+
+test('快速版本切换时旧播放失败不能覆盖新版本，无小孩版时切换不重载', async () => {
+  const audio = new Media(), player = createAnthemPlayer({ audioFactory: () => audio });
+  player.play(a); player.play(a, 0, 'child');
+  audio.plays[1].resolve(); await Promise.resolve(); audio.plays[0].reject(); await Promise.resolve();
+  assert.equal(player.inspect().variant, 'child'); assert.equal(player.inspect().playing, true);
+  player.play(b); audio.currentTime = 18;
+  const loads = audio.loads, plays = audio.plays.length;
+  player.play(b, 0, 'child'); assert.equal(audio.loads, loads); assert.equal(audio.plays.length, plays);
+  assert.equal(audio.currentTime, 18); assert.equal(player.inspect().variant, 'normal');
+  player.destroy();
 });
