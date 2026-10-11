@@ -29,7 +29,9 @@ const mergeFeedback = createMergeFeedback(), finalChoice = document.querySelecto
 const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
 function updateMusicControls() {
-  musicVersionButton.textContent = musicMode === 'child' ? '小孩版' : '正常版';
+  const currentVersion = musicMode === 'child' ? '小孩版' : '正常版';
+  const nextVersion = musicMode === 'child' ? '正常版' : '小孩版';
+  musicVersionButton.setAttribute('aria-label', `正常版 / 小孩版：当前${currentVersion}，点击切换${nextVersion}`);
   musicVersionButton.setAttribute('aria-pressed', String(musicMode === 'child'));
   if (!route) return;
   const team = route[anthemLevel], child = musicMode === 'child' && team.childAnthem;
@@ -153,7 +155,7 @@ musicVersionButton.addEventListener('click', () => {
   playCurrentAnthem();
 }, { signal: lifetime.signal });
 soundButton.addEventListener('click', () => {
-  muted = !muted; anthem?.setMuted(muted); soundButton.textContent = muted ? '静音' : '声音';
+  muted = !muted; anthem?.setMuted(muted);
   soundButton.setAttribute('aria-pressed', String(!muted)); soundButton.setAttribute('aria-label', muted ? '开启合成战歌' : '关闭合成战歌');
   if (!muted) playCurrentAnthem();
 }, { signal: lifetime.signal });
