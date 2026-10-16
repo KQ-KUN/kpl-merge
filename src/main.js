@@ -7,6 +7,7 @@ import { createProgression } from './game/progression.js';
 import { createRenderer } from './game/renderer.js';
 import { createAnthemPlayer, anthemLevelAfterMerge } from './game/anthem.js';
 import { createMergeFeedback } from './game/merge-feedback.js';
+import { createRoundAnalytics } from './game/analytics.js';
 
 const canvas = document.querySelector('#arena'), score = document.querySelector('#score');
 const status = document.querySelector('#status'), pauseButton = document.querySelector('#pause');
@@ -28,6 +29,7 @@ let session = null, disposed = false, previous = {}, announcement = null;
 const mergeFeedback = createMergeFeedback(), finalChoice = document.querySelector('#final-choice');
 const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
+const roundAnalytics = createRoundAnalytics(event => window.KPLAnalytics?.trackEvent(event));
 function updateMusicControls() {
   const currentVersion = musicMode === 'child' ? '小孩版' : '正常版';
   const nextVersion = musicMode === 'child' ? '正常版' : '小孩版';
@@ -45,6 +47,7 @@ function playCurrentAnthem() {
   anthem?.play(route[anthemLevel], anthemLevel, musicMode);
 }
 function update(state) {
+  if (state.phase === 'over') roundAnalytics.gameover();
   if (state.next !== previous.next) {
     const team = route[state.next];
     nextIcon.src = assetUrl(team.icon, base);
@@ -94,8 +97,9 @@ function update(state) {
   canvas.inert = finalPending; finalChoice.hidden = !finalPending; pauseButton.disabled = finalPending;
   previous = state;
 }
-function restart(rng = Math.random) {
+function restart(rng = Math.random, reason = 'start') {
   if (disposed || !selectedId) return;
+  roundAnalytics.cancel();
   session?.destroy(); anthem?.destroy();
   route = createProgression(teams, selectedId, rng);
   const images = loadRouteImages(route, base);
@@ -110,6 +114,7 @@ function restart(rng = Math.random) {
   delete score.dataset.pulse; delete gainPanel.dataset.pulse; gainTotal.textContent = '—'; gainLabel.textContent = '连锁得分';
   session = createSession(canvas, { rng, renderer: createRenderer(canvas, { route, images, reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }), onChange: update,
     onDrop: ball => { mergeFeedback.finish(); canvas.dataset.team = route[ball.level].id; }, onStop: () => { if (!finalPending || document.hidden) anthem.stop(); else playCurrentAnthem(); }, onResume: playCurrentAnthem, onMerge(event) {
+    if (event.level === 7) roundAnalytics.favorite();
     mergeFeedback.record(event);
     anthemLevel = anthemLevelAfterMerge(anthemLevel, event.level);
     if (event.level === 7 && !finalPending) {
@@ -121,6 +126,7 @@ function restart(rng = Math.random) {
     playCurrentAnthem();
     announcement = { time: event.time, text: event.level === 7 ? `${route[7].shortName}本命达成！+${event.points} · 可以继续合成` : `${route[event.level].shortName} +${event.points}` };
   } });
+  roundAnalytics.begin(reason);
   pauseButton.textContent = '暂停'; pauseButton.setAttribute('aria-label', '暂停物理模拟');
   update(session.physics.state());
   playCurrentAnthem();
@@ -146,6 +152,7 @@ grid.addEventListener('click', event => {
 }, { signal: lifetime.signal });
 startButton.addEventListener('click', () => { restart(); canvas.focus({ preventScroll: true }); }, { signal: lifetime.signal });
 document.querySelector('#change-team').addEventListener('click', () => {
+  roundAnalytics.cancel();
   session?.destroy(); anthem?.destroy(); game.hidden = true; picker.hidden = false;
   finalPending = false; finalChoice.hidden = true;
   grid.querySelector(`[data-team="${selectedId}"]`)?.focus({ preventScroll: true });
@@ -159,9 +166,9 @@ soundButton.addEventListener('click', () => {
   soundButton.setAttribute('aria-pressed', String(!muted)); soundButton.setAttribute('aria-label', muted ? '开启合成战歌' : '关闭合成战歌');
   if (!muted) playCurrentAnthem();
 }, { signal: lifetime.signal });
-document.querySelector('#restart').addEventListener('click', () => restart(), { signal: lifetime.signal });
+document.querySelector('#restart').addEventListener('click', () => restart(Math.random, 'restart'), { signal: lifetime.signal });
 finalContinue.addEventListener('click', () => { finalPending = false; mergeFeedback.finish(); session?.pause(false); pauseButton.textContent = '暂停'; canvas.focus({ preventScroll: true }); }, { signal: lifetime.signal });
-document.querySelector('#final-restart').addEventListener('click', () => { restart(); canvas.focus({ preventScroll: true }); }, { signal: lifetime.signal });
+document.querySelector('#final-restart').addEventListener('click', () => { restart(Math.random, 'restart'); canvas.focus({ preventScroll: true }); }, { signal: lifetime.signal });
 document.addEventListener('keydown', event => {
   if (!finalPending || event.key !== 'Tab') return;
   event.preventDefault();
@@ -186,13 +193,13 @@ if (!document.fullscreenEnabled) fullscreenButton.hidden = true;
 function destroy() { if (!disposed) { disposed = true; session?.destroy(); anthem?.destroy(); anthemPositions.clear(); mergeFeedback.reset(); finalPending = false; finalChoice.hidden = true; scoreFeedback.replaceChildren(); delete score.dataset.pulse; delete gainPanel.dataset.pulse; lifetime.abort(); } }
 // BFCache 恢复时重新创建实例，避免后台保留旧 RAF/gesture。
 window.addEventListener('pagehide', event => { if (event.persisted) { session?.destroy(); anthem?.destroy(); } else destroy(); }, { signal: lifetime.signal });
-window.addEventListener('pageshow', event => { if (event.persisted && !game.hidden) restart(); }, { signal: lifetime.signal });
+window.addEventListener('pageshow', event => { if (event.persisted && !game.hidden) restart(Math.random, 'restore'); }, { signal: lifetime.signal });
 if (import.meta.hot) import.meta.hot.dispose(destroy);
 
 if (import.meta.env.DEV) {
   const panel = document.querySelector('#debug-panel'); panel.hidden = false;
   function loadScene(name) {
-    if (!selectedId) return; restart();
+    if (!selectedId) return; restart(Math.random, 'debug');
     const p = session.physics;
     if (name === 'triple') {
       const r = RADII[1]; [200 - r * 1.8, 200, 200 + r * 1.8].forEach(x => p.addBall(1, x, 430));
