@@ -14,12 +14,12 @@ export function createSession(canvas, {
   const physics = createPhysics({ rng, onChange,
     onImpact: event => renderer.impact?.(event),
     onMerge: event => { renderer.feedback(event); onMerge(event); } });
-  let rafId = null, lastTime = null, accumulator = 0, destroyed = false, manuallyPaused = false;
+  let rafId = null, lastTime = null, accumulator = 0, destroyed = false, manuallyPaused = false, suspended = false, frameEpoch = 0;
   let pointerId = null, listenerCount = 0;
   let priorPhase = 'playing';
   const observer = observerFactory(() => { if (!destroyed) { renderer.resize(); renderer.draw(physics); } });
   observer.observe(canvas);
-  const isPaused = () => manuallyPaused || environment.document.hidden;
+  const isPaused = () => manuallyPaused || suspended || environment.document.hidden;
   const bind = (target, event, listener, options = {}) => { target.addEventListener(event, listener, { ...options, signal: controller.signal }); listenerCount += 1; };
   const xAt = event => { const rect = canvas.getBoundingClientRect(); return (event.clientX - rect.left) * PHYSICS.width / rect.width; };
   function cancelGesture() {
@@ -32,8 +32,14 @@ export function createSession(canvas, {
     if (ball) { renderer.release?.(ball, physics.state().now); onDrop(ball); }
     renderer.draw(physics);
   }
-  function schedule() { if (!destroyed && !isPaused() && physics.state().phase !== 'over' && rafId === null) rafId = scheduler.request(frame); }
-  function frame(time) {
+  function schedule() {
+    if (!destroyed && !isPaused() && physics.state().phase !== 'over' && rafId === null) {
+      const epoch = frameEpoch;
+      rafId = scheduler.request(time => frame(time, epoch));
+    }
+  }
+  function frame(time, epoch) {
+    if (epoch !== frameEpoch) return;
     rafId = null;
     if (destroyed || isPaused()) return;
     if (lastTime !== null) accumulator += Math.min(Math.max(0, time - lastTime), PHYSICS.stepMs * PHYSICS.maxFrameSteps);
@@ -48,7 +54,7 @@ export function createSession(canvas, {
     priorPhase = phase; schedule();
   }
   function syncPause() {
-    cancelGesture(); lastTime = null; accumulator = 0;
+    cancelGesture(); lastTime = null; accumulator = 0; frameEpoch++;
     if (rafId !== null) { scheduler.cancel(rafId); rafId = null; }
     schedule(); onChange(physics.state());
     if (isPaused()) onStop();
@@ -87,17 +93,20 @@ export function createSession(canvas, {
   return {
     physics,
     pause(value = true) { if (!destroyed) { manuallyPaused = value; syncPause(); } },
+    // BFCache retains this world and route; page lifecycle must not change the user's pause choice.
+    suspend() { if (!destroyed && !suspended) { suspended = true; syncPause(); } },
+    resume() { if (!destroyed && suspended) { suspended = false; syncPause(); } },
     isPaused,
     destroy() {
       if (destroyed) return;
-      destroyed = true; cancelGesture(); controller.abort(); listenerCount = 0;
+      destroyed = true; frameEpoch++; cancelGesture(); controller.abort(); listenerCount = 0;
       if (canvas.dataset) delete canvas.dataset.input;
       if (rafId !== null) scheduler.cancel(rafId);
       rafId = null; lastTime = null; accumulator = 0; observer.disconnect();
       physics.destroy(); renderer.destroy();
       onStop();
     },
-    inspect: () => ({ destroyed, paused: isPaused(), rafPending: rafId === null ? 0 : 1, listeners: listenerCount,
+    inspect: () => ({ destroyed, paused: isPaused(), manuallyPaused, suspended, rafPending: rafId === null ? 0 : 1, listeners: listenerCount,
       timers: 0, observerActive: !destroyed, physics: physics.inspect(), renderer: renderer.inspect() })
   };
 }

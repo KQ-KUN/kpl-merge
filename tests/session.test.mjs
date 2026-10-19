@@ -106,6 +106,44 @@ test('destroy 后人为执行旧 RAF 回调也不运行旧物理或重排 RAF', 
   s.destroy(); const draws = h.draws(); callback(1000);
   assert.equal(h.draws(), draws); assert.equal(h.frames.size, 0); assert.equal(s.physics.state().tick, 0);
 });
+
+test('BFCache suspend/resume 保留同一 world、分数、球体和队列，重复恢复仅一个 RAF', () => {
+  const h = harness(); let stops = 0, resumes = 0;
+  const s = h.create({ onStop: () => stops++, onResume: () => resumes++ });
+  s.physics.addBall(1, 195, 400); s.physics.addBall(1, 205, 400);
+  h.frame(0); h.frame(20);
+  h.event('keydown', { code: 'Space' });
+  const before = s.physics.state(), bodies = [...s.physics.balls()], stale = [...h.frames.values()][0];
+  assert.equal(before.score, 26);
+  for (let round = 0; round < 3; round++) {
+    s.suspend(); s.suspend();
+    assert.equal(h.frames.size, 0); assert.equal(s.inspect().suspended, true);
+    h.event('keydown', { code: 'Enter' });
+    assert.deepEqual(s.physics.state(), before); assert.deepEqual([...s.physics.balls()], bodies);
+    s.resume(); s.resume();
+    assert.equal(h.frames.size, 1); assert.equal(s.inspect().listeners, 8);
+    assert.deepEqual(s.physics.state(), before);
+  }
+  stale(100000); assert.equal(h.frames.size, 1, '取消的旧回调不覆盖恢复后的 RAF');
+  h.frame(200000); assert.deepEqual(s.physics.state(), before, '离开期间不追赶模拟时间');
+  assert.equal(stops, 3); assert.equal(resumes, 3);
+  h.frame(200020); assert.ok(s.physics.state().now > before.now);
+  s.destroy(); s.resume(); assert.equal(h.frames.size, 0);
+  assert.equal(s.inspect().listeners, 0); assert.equal(s.inspect().physics.worldBodies, 0);
+});
+
+test('BFCache 与 visibility 分开保留用户暂停，隐藏时恢复仍不调度', () => {
+  const h = harness(), s = h.create();
+  s.pause(); s.suspend(); s.resume();
+  assert.equal(s.inspect().manuallyPaused, true); assert.equal(s.isPaused(), true); assert.equal(h.frames.size, 0);
+  s.pause(false); assert.equal(h.frames.size, 1);
+  s.suspend(); h.doc.hidden = true; h.doc.dispatchEvent(new Event('visibilitychange')); s.resume();
+  assert.equal(h.frames.size, 0); assert.equal(s.inspect().manuallyPaused, false);
+  h.doc.hidden = false; h.doc.dispatchEvent(new Event('visibilitychange'));
+  assert.equal(h.frames.size, 1);
+  s.suspend(); s.destroy(); s.resume();
+  assert.equal(h.frames.size, 0); assert.equal(h.canvas.count() + h.win.count() + h.doc.count(), 0);
+});
 test('按住/松手的视觉状态即时更新，鼠标与键盘焦点可区分，销毁清理', () => {
   const h = harness(), s = h.create();
   h.event('pointerdown', { pointerId: 1, isPrimary: true, button: 0, clientX: 200 });

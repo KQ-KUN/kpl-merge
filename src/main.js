@@ -25,7 +25,7 @@ const musicVersionButton = document.querySelector('#music-version');
 let selectedId = null, route = null, anthem = null, muted = false, musicError = null;
 let anthemLevel = AUDIO.initialLevel, musicMode = 'normal';
 const anthemPositions = new Map();
-let session = null, disposed = false, previous = {}, announcement = null;
+let session = null, disposed = false, pageSuspended = false, previous = {}, announcement = null;
 const mergeFeedback = createMergeFeedback(), finalChoice = document.querySelector('#final-choice');
 const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
@@ -43,7 +43,7 @@ function updateMusicControls() {
 }
 function playCurrentAnthem() {
   updateMusicControls();
-  if (disposed || game.hidden || document.hidden || !session || (session.isPaused() && !finalPending) || session.physics.state().phase !== 'playing') return;
+  if (disposed || pageSuspended || game.hidden || document.hidden || !session || (session.isPaused() && !finalPending) || session.physics.state().phase !== 'playing') return;
   anthem?.play(route[anthemLevel], anthemLevel, musicMode);
 }
 function update(state) {
@@ -113,7 +113,7 @@ function restart(rng = Math.random, reason = 'start') {
   previous = {}; announcement = null; mergeFeedback.reset(); feedbackKey = ''; fullscreenError = null; finalPending = false; finalChoice.hidden = true; canvas.inert = false; scoreFeedback.replaceChildren();
   delete score.dataset.pulse; delete gainPanel.dataset.pulse; gainTotal.textContent = '—'; gainLabel.textContent = '连锁得分';
   session = createSession(canvas, { rng, renderer: createRenderer(canvas, { route, images, reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }), onChange: update,
-    onDrop: ball => { mergeFeedback.finish(); canvas.dataset.team = route[ball.level].id; }, onStop: () => { if (!finalPending || document.hidden) anthem.stop(); else playCurrentAnthem(); }, onResume: playCurrentAnthem, onMerge(event) {
+    onDrop: ball => { mergeFeedback.finish(); canvas.dataset.team = route[ball.level].id; }, onStop: () => { if (!finalPending || document.hidden || pageSuspended) anthem.stop(); else playCurrentAnthem(); }, onResume: playCurrentAnthem, onMerge(event) {
     if (event.level === 7) roundAnalytics.favorite();
     mergeFeedback.record(event);
     anthemLevel = anthemLevelAfterMerge(anthemLevel, event.level);
@@ -191,9 +191,17 @@ document.addEventListener('fullscreenchange', () => {
 }, { signal: lifetime.signal });
 if (!document.fullscreenEnabled) fullscreenButton.hidden = true;
 function destroy() { if (!disposed) { disposed = true; session?.destroy(); anthem?.destroy(); anthemPositions.clear(); mergeFeedback.reset(); finalPending = false; finalChoice.hidden = true; scoreFeedback.replaceChildren(); delete score.dataset.pulse; delete gainPanel.dataset.pulse; lifetime.abort(); } }
-// BFCache 恢复时重新创建实例，避免后台保留旧 RAF/gesture。
-window.addEventListener('pagehide', event => { if (event.persisted) { session?.destroy(); anthem?.destroy(); } else destroy(); }, { signal: lifetime.signal });
-window.addEventListener('pageshow', event => { if (event.persisted && !game.hidden) restart(Math.random, 'restore'); }, { signal: lifetime.signal });
+// BFCache freezes the same session. Only explicit Restart may randomize its route or reset its score.
+window.addEventListener('pagehide', event => {
+  if (!event.persisted) { destroy(); return; }
+  pageSuspended = true;
+  session?.suspend(); anthem?.stop();
+}, { signal: lifetime.signal });
+window.addEventListener('pageshow', event => {
+  if (!event.persisted || disposed || !pageSuspended) return;
+  pageSuspended = false;
+  session?.resume(); playCurrentAnthem();
+}, { signal: lifetime.signal });
 if (import.meta.hot) import.meta.hot.dispose(destroy);
 
 if (import.meta.env.DEV) {
