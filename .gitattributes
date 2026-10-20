@@ -1,2 +1,7 @@
 # Keep the audited official response byte-identical on Windows and Linux.
 docs/annual-2026-source.json text eol=lf
+# Hash contracts must survive Git checkout on Windows and Linux unchanged.
+src/data/teams.json -text
+public/data/*.json -text
+audio-originals/manifest.json -text
+scripts/prepare-audio.py text eol=lf
