@@ -6,7 +6,7 @@
   "engines": { "node": ">=24" },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "build": "node scripts/verify-snapshot.mjs && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "verify:browser": "node scripts/verify-browser.mjs",
     "audit:data": "node scripts/audit-teams.mjs",

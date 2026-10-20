@@ -357,8 +357,8 @@
     "files": {
       "normal/10001.m4a": {
         "source": "app/assets/audio/normal/10001.m4a",
-        "bytes": 6747784,
-        "sha256": "15b106f97c94e15805542a85515293c3d1c70277c91bcb4331edd29d5f6ad9a2",
+        "bytes": 2830191,
+        "sha256": "ee07d17500e00d19bd5afcd12d025cce77aa78b68879437b2362e84de7ef771f",
         "title": "Born Ready",
         "variant": "normal",
         "media": {
@@ -369,44 +369,47 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "15b106f97c94e15805542a85515293c3d1c70277c91bcb4331edd29d5f6ad9a2"
       },
       "child/10001.m4a": {
         "source": "app/assets/audio/狼小孩.m4a",
-        "bytes": 1096697,
-        "sha256": "9e25c78a3b98286d26f3992ecefd617f431b7005a46b4e8fa361989989ac2468",
+        "bytes": 1096641,
+        "sha256": "a0a8fe5f025d703e125b6ae50c7c2f9b9bcb5f91e9c6027656bff0810cb96fe2",
         "title": "狼小孩",
         "variant": "child",
         "media": {
           "extension": ".m4a",
-          "durationSeconds": 89.49,
+          "durationSeconds": 89.489887,
           "container": "mov,mp4,m4a,3gp,3g2,mj2",
           "codec": "aac",
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "9e25c78a3b98286d26f3992ecefd617f431b7005a46b4e8fa361989989ac2468"
       },
       "normal/10002.m4a": {
         "source": "app/assets/audio/normal/10002.m4a",
-        "bytes": 2462831,
-        "sha256": "9aaf3fa8f7c9454bbe4213eb12495a106c28f30b4e79ab0f29ca3c33585e2c0f",
+        "bytes": 2446717,
+        "sha256": "9d055ce460367e95c563eea02a6bbc482392831053c840443ba107ee955e31b4",
         "title": "EDG.M战歌",
         "variant": "normal",
         "media": {
           "extension": ".m4a",
-          "durationSeconds": 201.920726,
+          "durationSeconds": 201.84,
           "container": "mov,mp4,m4a,3gp,3g2,mj2",
           "codec": "aac",
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "9aaf3fa8f7c9454bbe4213eb12495a106c28f30b4e79ab0f29ca3c33585e2c0f"
       },
       "child/10002.m4a": {
         "source": "app/assets/audio/EDGM小孩.m4a",
-        "bytes": 2926894,
-        "sha256": "18e8c74f08b3d1e15ff6cf6cfeb62d9c10e99f513dce66dd14c09a9290a882c0",
+        "bytes": 1218093,
+        "sha256": "d375c4adbbfb6dcf2225bcb523814ece74840fc8f3d3bf438d31fb0cf1dc3f4b",
         "title": "EDGM小孩",
         "variant": "child",
         "media": {
@@ -417,12 +420,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "18e8c74f08b3d1e15ff6cf6cfeb62d9c10e99f513dce66dd14c09a9290a882c0"
       },
       "normal/10003.m4a": {
         "source": "app/assets/audio/normal/10003.m4a",
-        "bytes": 6298947,
-        "sha256": "7a94df076d5eeeab01bcf3d16beaee0c85a17a3869bdc18af861f941e64479e1",
+        "bytes": 2638976,
+        "sha256": "992ee76ebb9d71e47ca83782efcd0631f9c0231b43b6d3e39d7710d0ee8ca44b",
         "title": "Evolve",
         "variant": "normal",
         "media": {
@@ -433,12 +437,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "7a94df076d5eeeab01bcf3d16beaee0c85a17a3869bdc18af861f941e64479e1"
       },
       "normal/10005.m4a": {
         "source": "app/assets/audio/normal/10005.m4a",
-        "bytes": 5339414,
-        "sha256": "f0e76aa42e48a85cd0b0061ab5d6cd8ccd6588ebfe9bdcf3a62d045de69c8ba3",
+        "bytes": 2043819,
+        "sha256": "097655554ffe6729c0db3653c92e58a7082ad95959832b861c3c553e25f0c7b9",
         "title": "We Will Be Victorious",
         "variant": "normal",
         "media": {
@@ -449,12 +454,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "f0e76aa42e48a85cd0b0061ab5d6cd8ccd6588ebfe9bdcf3a62d045de69c8ba3"
       },
       "child/10005.m4a": {
         "source": "app/assets/audio/KSG小孩.m4a",
-        "bytes": 990916,
-        "sha256": "c1d3401158283340f1d6511fd3cd8942518c7d28deaa6c11d49e3555b861138e",
+        "bytes": 990860,
+        "sha256": "70b4f521977ceac0c19aa3819b9a3b52087587990073e76c3f710efc5d8a4c2c",
         "title": "KSG小孩",
         "variant": "child",
         "media": {
@@ -465,12 +471,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "c1d3401158283340f1d6511fd3cd8942518c7d28deaa6c11d49e3555b861138e"
       },
       "normal/10007.m4a": {
         "source": "app/assets/audio/normal/10007.m4a",
-        "bytes": 5395653,
-        "sha256": "1542c9704b4c089f320ebae728b93789a3888398298222732790808ff276b033",
+        "bytes": 2100004,
+        "sha256": "e8fd56a3848fad57026652b39d416c51519faf2483f85e26bd7ce1430c2e92e6",
         "title": "Will I Make It Out Alive",
         "variant": "normal",
         "media": {
@@ -481,12 +488,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "1542c9704b4c089f320ebae728b93789a3888398298222732790808ff276b033"
       },
       "child/10007.m4a": {
         "source": "app/assets/audio/HERO小孩.m4a",
-        "bytes": 1060038,
-        "sha256": "85e8db98c51784e3c9c4aec1cda47e40693168981a5709c4482ae57aa0b1018f",
+        "bytes": 1059982,
+        "sha256": "5fa8f9e8e3606a7d008d96bbd256d2a2b0b6f1660a2f7a58b2d25b1437289b97",
         "title": "HERO小孩",
         "variant": "child",
         "media": {
@@ -497,12 +505,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "85e8db98c51784e3c9c4aec1cda47e40693168981a5709c4482ae57aa0b1018f"
       },
       "normal/10008.m4a": {
         "source": "app/assets/audio/normal/10008.m4a",
-        "bytes": 5983445,
-        "sha256": "fe83baf7cec6c259935eb3052b1ec81695fda0ca99b48e4f6229ae0d9ea0b306",
+        "bytes": 2427791,
+        "sha256": "57d205520f8c47f937f32d8650e5fc185e39f09e6d53d89b4d055228349e5d32",
         "title": "Stand Alone",
         "variant": "normal",
         "media": {
@@ -513,28 +522,30 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "fe83baf7cec6c259935eb3052b1ec81695fda0ca99b48e4f6229ae0d9ea0b306"
       },
       "child/10008.m4a": {
         "source": "app/assets/audio/DYG小孩.m4a",
-        "bytes": 1114028,
-        "sha256": "bcd3fa4329cdeafa7791cebac111d4826240f8d3b2499ad3925c6adec25dbb48",
+        "bytes": 1113972,
+        "sha256": "8a82cbe7b4168d3582c535f6cf3540331463fcf37378d773c08c46f7e15b6df1",
         "title": "DYG小孩",
         "variant": "child",
         "media": {
           "extension": ".m4a",
-          "durationSeconds": 91.069002,
+          "durationSeconds": 91.068844,
           "container": "mov,mp4,m4a,3gp,3g2,mj2",
           "codec": "aac",
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "bcd3fa4329cdeafa7791cebac111d4826240f8d3b2499ad3925c6adec25dbb48"
       },
       "normal/10017.m4a": {
         "source": "app/assets/audio/normal/10017.m4a",
-        "bytes": 5101067,
-        "sha256": "8907a473c7647b1228cb5c57916c2b13fa926fd090404d5f9009b41cb64d445a",
+        "bytes": 2106694,
+        "sha256": "33d899e773faea3980a482890d5dc29067c67404e9069886c41643366e6c3112",
         "title": "Raising the roof",
         "variant": "normal",
         "media": {
@@ -545,28 +556,30 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "8907a473c7647b1228cb5c57916c2b13fa926fd090404d5f9009b41cb64d445a"
       },
       "child/10017.m4a": {
         "source": "app/assets/audio/TT小孩.m4a",
-        "bytes": 1152501,
-        "sha256": "6ff84360b6183b01e9f73b8477e2ae5ed3cadc10554db9a0ad8891ea0d6f0d23",
+        "bytes": 1152445,
+        "sha256": "480f5e236a2582057d2ea90f3918b30fd58aa7a4fcbb81645bd9e4a405a14cf4",
         "title": "TT小孩",
         "variant": "child",
         "media": {
           "extension": ".m4a",
-          "durationSeconds": 94.25,
+          "durationSeconds": 94.249977,
           "container": "mov,mp4,m4a,3gp,3g2,mj2",
           "codec": "aac",
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "6ff84360b6183b01e9f73b8477e2ae5ed3cadc10554db9a0ad8891ea0d6f0d23"
       },
-      "normal/10018.mp3": {
+      "normal/10018.m4a": {
         "source": "app/assets/audio/normal/10018.mp3",
-        "bytes": 3431081,
-        "sha256": "36320ed406144a707228557f97161e35f365baff5133f24fdb4f2d9262f104d9",
+        "bytes": 2621081,
+        "sha256": "56eddb2257c2a192016fada42f4dffec91c9752f98028b72331562d79a119eda",
         "title": "RW侠战歌",
         "variant": "normal",
         "media": {
@@ -577,28 +590,30 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "36320ed406144a707228557f97161e35f365baff5133f24fdb4f2d9262f104d9"
       },
       "normal/10020.m4a": {
         "source": "app/assets/audio/normal/10020.m4a",
-        "bytes": 3134028,
-        "sha256": "10beaba2f31f843f8c2e2a7077689c320ad6cbc204f160a84602f96eacaaa9ae",
+        "bytes": 3119060,
+        "sha256": "d5a3ce2a6ff9d96e45d9bff09038d446fad78e3fa77e2c44248b3800147f4960",
         "title": "JDG战歌",
         "variant": "normal",
         "media": {
           "extension": ".m4a",
-          "durationSeconds": 256.487619,
+          "durationSeconds": 256.418322,
           "container": "mov,mp4,m4a,3gp,3g2,mj2",
           "codec": "aac",
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "10beaba2f31f843f8c2e2a7077689c320ad6cbc204f160a84602f96eacaaa9ae"
       },
       "normal/10027.m4a": {
         "source": "app/assets/audio/normal/10027.m4a",
-        "bytes": 5691985,
-        "sha256": "c8d506840d48546e8c4b45571e32520eca0f1c8fa077704a4499a7e5f68f921f",
+        "bytes": 2729299,
+        "sha256": "402857d2fd527e6731c7aed4db7c554ac459d932ced051f4bfbcfa6d795ec1e3",
         "title": "Heroes",
         "variant": "normal",
         "media": {
@@ -609,12 +624,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "c8d506840d48546e8c4b45571e32520eca0f1c8fa077704a4499a7e5f68f921f"
       },
       "child/10027.m4a": {
         "source": "app/assets/audio/红小孩.m4a",
-        "bytes": 1311877,
-        "sha256": "703924370048216fee7b625c58ef45160b23df40f9e3dd3783e26946b75be4be",
+        "bytes": 1311813,
+        "sha256": "3587d298f4cd5d7fae306e9aaf9f201f036dd88e4f2c0ef2f815481dc66e18a1",
         "title": "红小孩",
         "variant": "child",
         "media": {
@@ -625,12 +641,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "703924370048216fee7b625c58ef45160b23df40f9e3dd3783e26946b75be4be"
       },
-      "normal/10028.mp3": {
+      "normal/10028.m4a": {
         "source": "app/assets/audio/normal/10028.mp3",
-        "bytes": 3567796,
-        "sha256": "8b195d5cf1d0214ae5f714e4c3867f068f48e703e59d2b7a65665c4284949d4e",
+        "bytes": 1762097,
+        "sha256": "7f4dd975ca3b61aa1c759d6e740985d4bf83f64b84febbe6d4b23ef7e43bf5a3",
         "title": "TES.A战歌",
         "variant": "normal",
         "media": {
@@ -641,12 +658,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "AAC-LC 96 kbps stereo 44100 Hz encode, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "8b195d5cf1d0214ae5f714e4c3867f068f48e703e59d2b7a65665c4284949d4e"
       },
       "child/10028.m4a": {
         "source": "app/assets/audio/突然的陀螺小孩.m4a",
-        "bytes": 885128,
-        "sha256": "ac1923a09ddf7831235a7e8237cc7678356a7754b18ce452829e83529934240d",
+        "bytes": 885072,
+        "sha256": "f094348faab4a7c8246da13d7dc5e6e0dbdf4b5d6f9f6e5623daf3ead77aa1f2",
         "title": "突然的陀螺小孩",
         "variant": "child",
         "media": {
@@ -657,12 +675,13 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": null
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "ac1923a09ddf7831235a7e8237cc7678356a7754b18ce452829e83529934240d"
       },
       "normal/10031.m4a": {
         "source": "app/assets/audio/normal/10031.m4a",
-        "bytes": 2812897,
-        "sha256": "edaa5484595e4342afad73e935dec9a91667e8348202a597965bbaddd4eaa3c3",
+        "bytes": 2812773,
+        "sha256": "391c8413bcc6a8ee2b5581a7fe15d7106ee63a5f3d7d21ef88a06cdc2b827f60",
         "title": "LGD.NBW战歌",
         "variant": "normal",
         "media": {
@@ -673,12 +692,8 @@
           "sampleRate": 44100,
           "channels": 2
         },
-        "processing": {
-          "kind": "remux",
-          "audioCodec": "copy",
-          "sourceContainer": "aac",
-          "targetContainer": "m4a"
-        }
+        "processing": "Existing low-bitrate AAC-LC bitstream copy, audio-only faststart; immutable original retained outside public",
+        "originalSha256": "edaa5484595e4342afad73e935dec9a91667e8348202a597965bbaddd4eaa3c3"
       }
     },
     "normalTeams": [

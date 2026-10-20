@@ -1,0 +1,1199 @@
+{
+  "samples": [
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\normal-64k.m4a",
+      "kbps": 64,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "64325"
+          }
+        ],
+        "format": {
+          "duration": "30.000000",
+          "size": "247386",
+          "bit_rate": "65969"
+        }
+      },
+      "sha256": "128e79c004d002f78666cce1991089bf039c64d6b87de523877a6d01e6c355b4"
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\normal-96k.m4a",
+      "kbps": 96,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "96825"
+          }
+        ],
+        "format": {
+          "duration": "30.000000",
+          "size": "369356",
+          "bit_rate": "98494"
+        }
+      },
+      "sha256": "93f6b903352a9c73b34bf6ac24f62b0b6a644dbd628afd4818765b1445cabdbd"
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\normal-128k.m4a",
+      "kbps": 128,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "128708"
+          }
+        ],
+        "format": {
+          "duration": "30.000000",
+          "size": "489007",
+          "bit_rate": "130401"
+        }
+      },
+      "sha256": "668613849041222fc4feee3971c19996d241bbecb6470d9ffc5c9d0c510aad1a"
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\child-64k.m4a",
+      "kbps": 64,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "64323"
+          }
+        ],
+        "format": {
+          "duration": "30.021678",
+          "size": "247425",
+          "bit_rate": "65932"
+        }
+      },
+      "sha256": "4d27093c2671996205873706f561479d221fd2e856cf8bee405c21506e6f6d69"
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\child-96k.m4a",
+      "kbps": 96,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "96382"
+          }
+        ],
+        "format": {
+          "duration": "30.021678",
+          "size": "367742",
+          "bit_rate": "97993"
+        }
+      },
+      "sha256": "3c6e47f45383de95daee5fb655ad38e4d6b161e69393d4c55f55ebed26d63482"
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\22974\\Documents\\ChatGPT\\KPL 2K\\output\\optimization-batches-20261019\\audio-samples\\child-128k.m4a",
+      "kbps": 128,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "aac",
+            "profile": "LC",
+            "sample_rate": "44100",
+            "channels": 2,
+            "bit_rate": "128194"
+          }
+        ],
+        "format": {
+          "duration": "30.021678",
+          "size": "487129",
+          "bit_rate": "129807"
+        }
+      },
+      "sha256": "e85d29cd4c70884131383c458499f8733ba135f93b9b3ca49fc089f7a23b3df2"
+    }
+  ],
+  "tracks": [
+    {
+      "original": {
+        "path": "team-audio/normal/10001.m4a",
+        "sha256": "15b106f97c94e15805542a85515293c3d1c70277c91bcb4331edd29d5f6ad9a2",
+        "bytes": 6747784,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "195322"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "229.715011",
+            "size": "6747784",
+            "bit_rate": "234996"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10001.m4a",
+        "bytes": 2830191,
+        "sha256": "ee07d17500e00d19bd5afcd12d025cce77aa78b68879437b2362e84de7ef771f",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97146"
+            }
+          ],
+          "format": {
+            "duration": "229.715011",
+            "size": "2830191",
+            "bit_rate": "98563"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10001.m4a",
+        "sha256": "9e25c78a3b98286d26f3992ecefd617f431b7005a46b4e8fa361989989ac2468",
+        "bytes": 1096697,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96547"
+            }
+          ],
+          "format": {
+            "duration": "89.490000",
+            "size": "1096697",
+            "bit_rate": "98039"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10001.m4a",
+        "bytes": 1096641,
+        "sha256": "a0a8fe5f025d703e125b6ae50c7c2f9b9bcb5f91e9c6027656bff0810cb96fe2",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96547"
+            }
+          ],
+          "format": {
+            "duration": "89.489887",
+            "size": "1096641",
+            "bit_rate": "98034"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.00011299999999891952,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10002.m4a",
+        "sha256": "9aaf3fa8f7c9454bbe4213eb12495a106c28f30b4e79ab0f29ca3c33585e2c0f",
+        "bytes": 2462831,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "95524"
+            },
+            {
+              "codec_name": "bin_data",
+              "bit_rate": "1"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "201.920726",
+            "size": "2462831",
+            "bit_rate": "97576"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10002.m4a",
+        "bytes": 2446717,
+        "sha256": "9d055ce460367e95c563eea02a6bbc482392831053c840443ba107ee955e31b4",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "95524"
+            }
+          ],
+          "format": {
+            "duration": "201.840000",
+            "size": "2446717",
+            "bit_rate": "96976"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.08072599999999852,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10002.m4a",
+        "sha256": "18e8c74f08b3d1e15ff6cf6cfeb62d9c10e99f513dce66dd14c09a9290a882c0",
+        "bytes": 2926894,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "213050"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "99.149410",
+            "size": "2926894",
+            "bit_rate": "236160"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10002.m4a",
+        "bytes": 1218093,
+        "sha256": "d375c4adbbfb6dcf2225bcb523814ece74840fc8f3d3bf438d31fb0cf1dc3f4b",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96805"
+            }
+          ],
+          "format": {
+            "duration": "99.149410",
+            "size": "1218093",
+            "bit_rate": "98283"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10003.m4a",
+        "sha256": "7a94df076d5eeeab01bcf3d16beaee0c85a17a3869bdc18af861f941e64479e1",
+        "bytes": 6298947,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "191902"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "215.202540",
+            "size": "6298947",
+            "bit_rate": "234158"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10003.m4a",
+        "bytes": 2638976,
+        "sha256": "992ee76ebb9d71e47ca83782efcd0631f9c0231b43b6d3e39d7710d0ee8ca44b",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96682"
+            }
+          ],
+          "format": {
+            "duration": "215.202540",
+            "size": "2638976",
+            "bit_rate": "98102"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10005.m4a",
+        "sha256": "f0e76aa42e48a85cd0b0061ab5d6cd8ccd6588ebfe9bdcf3a62d045de69c8ba3",
+        "bytes": 5339414,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "203896"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "165.233197",
+            "size": "5339414",
+            "bit_rate": "258515"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10005.m4a",
+        "bytes": 2043819,
+        "sha256": "097655554ffe6729c0db3653c92e58a7082ad95959832b861c3c553e25f0c7b9",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97522"
+            }
+          ],
+          "format": {
+            "duration": "165.233197",
+            "size": "2043819",
+            "bit_rate": "98954"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10005.m4a",
+        "sha256": "c1d3401158283340f1d6511fd3cd8942518c7d28deaa6c11d49e3555b861138e",
+        "bytes": 990916,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96265"
+            }
+          ],
+          "format": {
+            "duration": "81.083991",
+            "size": "990916",
+            "bit_rate": "97766"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10005.m4a",
+        "bytes": 990860,
+        "sha256": "70b4f521977ceac0c19aa3819b9a3b52087587990073e76c3f710efc5d8a4c2c",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96265"
+            }
+          ],
+          "format": {
+            "duration": "81.083991",
+            "size": "990860",
+            "bit_rate": "97761"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10007.m4a",
+        "sha256": "1542c9704b4c089f320ebae728b93789a3888398298222732790808ff276b033",
+        "bytes": 5395653,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "199423"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "171.154286",
+            "size": "5395653",
+            "bit_rate": "252200"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10007.m4a",
+        "bytes": 2100004,
+        "sha256": "e8fd56a3848fad57026652b39d416c51519faf2483f85e26bd7ce1430c2e92e6",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96727"
+            }
+          ],
+          "format": {
+            "duration": "171.154286",
+            "size": "2100004",
+            "bit_rate": "98157"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10007.m4a",
+        "sha256": "85e8db98c51784e3c9c4aec1cda47e40693168981a5709c4482ae57aa0b1018f",
+        "bytes": 1060038,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96761"
+            }
+          ],
+          "format": {
+            "duration": "86.308005",
+            "size": "1060038",
+            "bit_rate": "98256"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10007.m4a",
+        "bytes": 1059982,
+        "sha256": "5fa8f9e8e3606a7d008d96bbd256d2a2b0b6f1660a2f7a58b2d25b1437289b97",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96761"
+            }
+          ],
+          "format": {
+            "duration": "86.308005",
+            "size": "1059982",
+            "bit_rate": "98251"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10008.m4a",
+        "sha256": "fe83baf7cec6c259935eb3052b1ec81695fda0ca99b48e4f6229ae0d9ea0b306",
+        "bytes": 5983445,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "196834"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "197.114195",
+            "size": "5983445",
+            "bit_rate": "242841"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10008.m4a",
+        "bytes": 2427791,
+        "sha256": "57d205520f8c47f937f32d8650e5fc185e39f09e6d53d89b4d055228349e5d32",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97109"
+            }
+          ],
+          "format": {
+            "duration": "197.114195",
+            "size": "2427791",
+            "bit_rate": "98533"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10008.m4a",
+        "sha256": "bcd3fa4329cdeafa7791cebac111d4826240f8d3b2499ad3925c6adec25dbb48",
+        "bytes": 1114028,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96371"
+            }
+          ],
+          "format": {
+            "duration": "91.069002",
+            "size": "1114028",
+            "bit_rate": "97862"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10008.m4a",
+        "bytes": 1113972,
+        "sha256": "8a82cbe7b4168d3582c535f6cf3540331463fcf37378d773c08c46f7e15b6df1",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96371"
+            }
+          ],
+          "format": {
+            "duration": "91.068844",
+            "size": "1113972",
+            "bit_rate": "97857"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.00015799999999899228,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10017.m4a",
+        "sha256": "8907a473c7647b1228cb5c57916c2b13fa926fd090404d5f9009b41cb64d445a",
+        "bytes": 5101067,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "185149"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "171.618685",
+            "size": "5101067",
+            "bit_rate": "237786"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10017.m4a",
+        "bytes": 2106694,
+        "sha256": "33d899e773faea3980a482890d5dc29067c67404e9069886c41643366e6c3112",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96774"
+            }
+          ],
+          "format": {
+            "duration": "171.618685",
+            "size": "2106694",
+            "bit_rate": "98203"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10017.m4a",
+        "sha256": "6ff84360b6183b01e9f73b8477e2ae5ed3cadc10554db9a0ad8891ea0d6f0d23",
+        "bytes": 1152501,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96338"
+            }
+          ],
+          "format": {
+            "duration": "94.250000",
+            "size": "1152501",
+            "bit_rate": "97825"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10017.m4a",
+        "bytes": 1152445,
+        "sha256": "480f5e236a2582057d2ea90f3918b30fd58aa7a4fcbb81645bd9e4a405a14cf4",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96338"
+            }
+          ],
+          "format": {
+            "duration": "94.249977",
+            "size": "1152445",
+            "bit_rate": "97820"
+          }
+        }
+      },
+      "durationDeltaSeconds": 2.2999999998774e-05,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10018.mp3",
+        "sha256": "36320ed406144a707228557f97161e35f365baff5133f24fdb4f2d9262f104d9",
+        "bytes": 3431081,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "128000",
+              "side_data_list": [
+                {}
+              ]
+            }
+          ],
+          "format": {
+            "duration": "214.221927",
+            "size": "3431081",
+            "bit_rate": "128131"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10018.m4a",
+        "bytes": 2621081,
+        "sha256": "56eddb2257c2a192016fada42f4dffec91c9752f98028b72331562d79a119eda",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96462"
+            }
+          ],
+          "format": {
+            "duration": "214.221927",
+            "size": "2621081",
+            "bit_rate": "97882"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10020.m4a",
+        "sha256": "10beaba2f31f843f8c2e2a7077689c320ad6cbc204f160a84602f96eacaaa9ae",
+        "bytes": 3134028,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "95879"
+            },
+            {
+              "codec_name": "bin_data"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "256.487619",
+            "size": "3134028",
+            "bit_rate": "97752"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10020.m4a",
+        "bytes": 3119060,
+        "sha256": "d5a3ce2a6ff9d96e45d9bff09038d446fad78e3fa77e2c44248b3800147f4960",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "95879"
+            }
+          ],
+          "format": {
+            "duration": "256.418322",
+            "size": "3119060",
+            "bit_rate": "97311"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.06929700000000594,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10027.m4a",
+        "sha256": "c8d506840d48546e8c4b45571e32520eca0f1c8fa077704a4499a7e5f68f921f",
+        "bytes": 5691985,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "164107"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "222.005986",
+            "size": "5691985",
+            "bit_rate": "205111"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10027.m4a",
+        "bytes": 2729299,
+        "sha256": "402857d2fd527e6731c7aed4db7c554ac459d932ced051f4bfbcfa6d795ec1e3",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96932"
+            }
+          ],
+          "format": {
+            "duration": "222.005986",
+            "size": "2729299",
+            "bit_rate": "98350"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10027.m4a",
+        "sha256": "703924370048216fee7b625c58ef45160b23df40f9e3dd3783e26946b75be4be",
+        "bytes": 1311877,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96484"
+            }
+          ],
+          "format": {
+            "duration": "107.137007",
+            "size": "1311877",
+            "bit_rate": "97958"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10027.m4a",
+        "bytes": 1311813,
+        "sha256": "3587d298f4cd5d7fae306e9aaf9f201f036dd88e4f2c0ef2f815481dc66e18a1",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96484"
+            }
+          ],
+          "format": {
+            "duration": "107.137007",
+            "size": "1311813",
+            "bit_rate": "97954"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10028.mp3",
+        "sha256": "8b195d5cf1d0214ae5f714e4c3867f068f48e703e59d2b7a65665c4284949d4e",
+        "bytes": 3567796,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "mp3",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "192000"
+            },
+            {
+              "codec_name": "mjpeg",
+              "profile": "Baseline"
+            }
+          ],
+          "format": {
+            "duration": "143.406440",
+            "size": "3567796",
+            "bit_rate": "199031"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10028.m4a",
+        "bytes": 1762097,
+        "sha256": "7f4dd975ca3b61aa1c759d6e740985d4bf83f64b84febbe6d4b23ef7e43bf5a3",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "96860"
+            }
+          ],
+          "format": {
+            "duration": "143.406440",
+            "size": "1762097",
+            "bit_rate": "98299"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": false
+    },
+    {
+      "original": {
+        "path": "team-audio/child/10028.m4a",
+        "sha256": "ac1923a09ddf7831235a7e8237cc7678356a7754b18ce452829e83529934240d",
+        "bytes": 885128,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97047"
+            }
+          ],
+          "format": {
+            "duration": "71.841995",
+            "size": "885128",
+            "bit_rate": "98563"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/child/10028.m4a",
+        "bytes": 885072,
+        "sha256": "f094348faab4a7c8246da13d7dc5e6e0dbdf4b5d6f9f6e5623daf3ead77aa1f2",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97047"
+            }
+          ],
+          "format": {
+            "duration": "71.841995",
+            "size": "885072",
+            "bit_rate": "98557"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": true
+    },
+    {
+      "original": {
+        "path": "team-audio/normal/10031.m4a",
+        "sha256": "edaa5484595e4342afad73e935dec9a91667e8348202a597965bbaddd4eaa3c3",
+        "bytes": 2812897,
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97047"
+            }
+          ],
+          "format": {
+            "duration": "228.554014",
+            "size": "2812897",
+            "bit_rate": "98458"
+          }
+        }
+      },
+      "runtime": {
+        "path": "team-audio/normal/10031.m4a",
+        "bytes": 2812773,
+        "sha256": "391c8413bcc6a8ee2b5581a7fe15d7106ee63a5f3d7d21ef88a06cdc2b827f60",
+        "media": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "aac",
+              "profile": "LC",
+              "sample_rate": "44100",
+              "channels": 2,
+              "bit_rate": "97047"
+            }
+          ],
+          "format": {
+            "duration": "228.554014",
+            "size": "2812773",
+            "bit_rate": "98454"
+          }
+        }
+      },
+      "durationDeltaSeconds": 0.0,
+      "bitstreamCopied": true
+    }
+  ],
+  "humanListening": false,
+  "originalBytes": 66505007,
+  "runtimeAudioBytes": 38467380
+}
