@@ -91,8 +91,9 @@ def main():
             if old.exists() and sha(old) == item['sha256']: old.unlink()  # Exact manifest-managed original now safely archived.
     (ROOT / 'src/data/teams.json').write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     (ROOT / 'docs/data-provenance.json').write_text(json.dumps(provenance, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
-    cues_path = ROOT / 'docs/AUDIO_CUES_20261008.json'
-    cues = json.loads(cues_path.read_text('utf8'))
+    cues_path = ROOT / 'docs/AUDIO_CUES_CURRENT.json'
+    cues_source = cues_path if cues_path.exists() else ROOT / 'docs/AUDIO_CUES_20261008.json'
+    cues = json.loads(cues_source.read_text('utf8'))
     for cue in cues['cues']:
         team = next(t for t in snapshot['teams'] if t['id'] == cue['id'])
         cue.setdefault('originalSha256', cue['sha256']); cue['sha256'] = sha(ROOT / 'public' / team['anthem'])

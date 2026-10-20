@@ -16,4 +16,6 @@ npm run build
 
 public/data/manifest.json 的 outputs hash 在最终音源路径改写后计算，含 teams JSON、20 首运行音源和12队徽。build 只验证这些最终输出，不读外部 canonical 或原始音源，不自动同步。运行时只使用 createAnthemPlayer 的单个 Audio、preload=none；切歌/暂停/隐藏/静音保存游标并释放 src。正常/小孩版游标独立，曲目失败可以继续游戏。
 
+docs/AUDIO_CUES_20261008.json 保留历史原文与原始音源hash；当前编码资源的歌词起点/hash审计写入独立 AUDIO_CUES_CURRENT.json，不把历史通过结果改写成当前验收。
+
 本地 Range 206、缓存响应和真实 seek 是开发验证；线上 Range、CDN缓存、大陆网络、移动真机及人工试听须另验。本批不修改托管设施或部署。

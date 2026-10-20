@@ -257,7 +257,7 @@
   ],
   "generator": {
     "name": "scripts/prepare-audio.py",
-    "version": "a1d2686bfe1ca05fe7f7358ea1b98d68e82b354591c8fa28b48615fc471a6e9f"
+    "version": "d4ff5d753598cb368da83f30755d99f9adb01f1d02c9e942c1621e4776388f51"
   },
   "coverage": {
     "teams": 12,

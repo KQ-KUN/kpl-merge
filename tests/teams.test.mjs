@@ -37,7 +37,7 @@ test('本命固定L7，七队互异、源池不变、路线和Team冻结，RNG�
   assert.equal(createProgression(teams, '10001', () => .999999)[0].id, '10020');
 });
 test('12首正常版歌词起点与本曲哈希/时长匹配，小孩版保持原起点', async () => {
-  const cues = JSON.parse(await fs.readFile(new URL('../docs/AUDIO_CUES_20261008.json', import.meta.url)));
+  const cues = JSON.parse(await fs.readFile(new URL('../docs/AUDIO_CUES_CURRENT.json', import.meta.url)));
   const provenance = JSON.parse(await fs.readFile(new URL('../docs/data-provenance.json', import.meta.url)));
   assert.equal(cues.cues.length, 12);
   for (const team of teams) {
