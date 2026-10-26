@@ -12,7 +12,7 @@
 - merge/scripts/sync-teams.mjs：从数据库按ID取正常版/可选小孩版，校验名称/哈希/容器后生成独立schemaVersion=2快照。public/team-audio/normal有12首、child有8首；只清理上一快照明确管理且未再使用的资源，未知文件保留。
 - 2K原championTrack与主数据库未改，合成游戏运行/build不读取桌面或父仓库，不调用同步、不请求外部音源。
 
-导入命令：node tools/import_team_anthems.mjs "D:/HuaweiMoveData/Users/22974/Desktop/队歌正常版"。
+导入命令：node tools/import_team_anthems.mjs "<本机音源目录>/队歌正常版"。
 同步命令（merge目录）：npm run sync:teams -- --source .. --as-of 2026-10-08 --pool annual。
 
 ## 游戏行为

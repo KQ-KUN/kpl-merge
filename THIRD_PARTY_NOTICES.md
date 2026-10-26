@@ -7,7 +7,7 @@
 | moonfloof/suika-game | https://github.com/moonfloof/suika-game | 审阅三面墙、队列、中心合并与防重复设计，未复制执行代码/素材 | LICENSE 对 index.js/index.html/assets 声明 public domain，Unlicense 风格；内置 Matter 单独 MIT。许可证文本保留于 licenses/moonfloof-Unlicense.txt；Raw/API 暂 404，未锁定源码 commit。 |
 | lee-JunR/std_Suika | https://github.com/lee-JunR/std_Suika/tree/987284d628d9809a9301d326c1f4cc02dcb96c83 | ESM/Vite/Matter 组织及 B 候选八级半径比例来源；没有复制 UI/水果/声音 | MIT，Copyright (c) 2023 JunR；原文 licenses/std_Suika-MIT.txt，逐文件哈希在 docs/REFERENCE_PROVENANCE.json。 |
 | Matter.js | https://github.com/liabru/matter-js/tree/0.20.0 | B 的圆体/碰撞引擎，固定 0.20.0 | MIT；licenses/matter-js-MIT.txt 与实际 node_modules/matter-js/LICENSE 逐字节一致；锁于 package-lock.json。 |
-| Vite | https://github.com/vitejs/vite | B 构建工具，固定 7.3.6 | 实际发布包的 MIT 与其 bundled dependencies 完整声明保留于 licenses/vite-7.3.6-LICENSE.md；不复用 std 的 gh-pages 发布流程。 |
+| Vite | https://github.com/vitejs/vite | B 构建工具，固定 7.3.7 | 实际发布包的 MIT 与其 bundled dependencies 完整声明保留于 licenses/vite-7.3.7-LICENSE.md；不复用 std 的 gh-pages 发布流程。 |
 | KPL 战队队徽与名称 | KQ-KUN/kpl2k/data/processed/franchises.json；app/assets/team_icons/；app/data/team_icons.json | C 同步2026年总12队的必要队徽，canonical来源和哈希在 docs/data-provenance.json；参赛名单补充自腾讯官方接口快照 | 品牌、队徽权利归各权利人；代码许可不覆盖品牌。仅名单联网核对，未下载远程队徽；未声称官方授权或合作。 |
 | 队伍正常版与小孩版战歌 | 用户提供的桌面“队歌正常版”目录；2K既有小孩版；app/data/team_anthems.json | 用户指定收录：游戏使用12首正常版及8首小孩版，只有本命L7优先小孩版；缺少时用本队正常版，无默认曲。LGD裸AAC仅无损封装M4A，不重新编码 | 音源权利归原权利人，不重新标为MIT。原文件名、来源、双版本和哈希在本地数据库及 docs/data-provenance.json；不作官方授权声明，仍仅本地验证。 |
 
