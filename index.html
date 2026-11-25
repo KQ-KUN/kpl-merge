@@ -10,7 +10,7 @@
   <section id="picker" class="picker" aria-labelledby="picker-title">
     <header><a class="hub-link" href="/">游戏中心</a><h1 id="picker-title">选择你的本命战队</h1></header>
     <div id="team-grid" class="team-grid" role="group" aria-label="本地赛季参赛队伍"></div>
-    <footer><button id="start" disabled>开始合成</button><p id="picker-status" role="status">请选择一支队伍</p></footer>
+    <footer><button id="start" disabled>开始合成</button><p id="picker-status" role="status">请选择一支队伍</p><p id="first-favorite" hidden></p></footer>
   </section>
   <main class="game" hidden>
     <header class="topbar"><h1>合成KPL <span lang="en">KPL Merge</span></h1>
@@ -21,7 +21,7 @@
       </div>
     </header>
     <section class="play-layout" aria-label="合成游戏">
-      <aside class="scoreboard score-panel" aria-label="本局得分"><div class="score-label score-heading"><span>本局得分</span><span class="favorite-target" aria-label="本命战队"><img id="favorite-icon" alt="" width="22" height="22"><span id="favorite-name"></span></span></div><strong id="score">0</strong><nav class="side-nav" aria-label="游戏导航"><a class="hub-link" href="/">游戏中心</a><button id="change-team" aria-label="返回首页选择战队">选择战队</button></nav></aside>
+      <aside class="scoreboard score-panel" aria-label="本局得分与本机纪录"><div class="score-label score-heading"><span>本局得分</span><span class="favorite-target" aria-label="本命战队"><img id="favorite-icon" alt="" width="22" height="22"><span id="favorite-name"></span></span></div><strong id="score">0</strong><p class="local-record">本机最高 <strong id="local-best">0</strong></p><nav class="side-nav" aria-label="游戏导航"><a class="hub-link" href="/">游戏中心</a><button id="change-team" aria-label="返回首页选择战队">选择战队</button></nav></aside>
       <div class="arena-shell"><canvas id="arena" width="400" height="600" tabindex="0" aria-label="物理游戏箱。左右键移动，空格或回车投放。鼠标移动定位并点击，触摸拖动后松手投放。" aria-describedby="controls"></canvas><div id="arena-message" class="arena-message" hidden><strong id="arena-message-title"></strong><span id="arena-message-copy"></span></div></div>
       <aside class="gain-panel" aria-label="本次合成加分"><div id="score-feedback" class="score-feedback" aria-label="逐次合成加分"></div><div class="gain-summary"><span id="gain-label" class="score-label">连锁得分</span><strong id="gain-total">—</strong></div><p id="status" role="status" aria-live="polite">可投放</p><span class="ready-meter" aria-hidden="true"><i id="ready-fill"></i></span><div id="next-preview" class="next-preview" aria-label="下一球"><div class="next-ball"><img id="next-icon" alt=""></div><div><span class="score-label">下一球</span><strong id="next-name"></strong><span id="next-level"></span></div></div></aside>
     </section>

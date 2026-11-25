@@ -61,6 +61,7 @@ test('真实 Matter 连锁：新 L2 再接触已有 L2，逐级 +26/+32 = 58', t
   p.step(); assert.equal(p.state().score, 26);
   advance(p, 200); assert.equal(p.state().score, 58);
   assert.deepEqual(events.map(event => event.points), [26, 32]); assert.ok(events[1].tick > events[0].tick);
+  assert.deepEqual(events.map(event => event.score), [26, 58]);
   assert.equal([...p.balls()][0].level, 3); assert.equal(p.inspect().worldBodies, 4);
 });
 test('collisionStart 与 collisionActive 同 tick 重复候选不会重复结算', t => {

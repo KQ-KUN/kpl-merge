@@ -8,6 +8,7 @@ import { createRenderer } from './game/renderer.js';
 import { createAnthemPlayer, anthemLevelAfterMerge } from './game/anthem.js';
 import { createMergeFeedback } from './game/merge-feedback.js';
 import { createRoundAnalytics } from './game/analytics.js';
+import { readRecords, recordScore } from './game/records.js';
 
 const canvas = document.querySelector('#arena'), score = document.querySelector('#score');
 const status = document.querySelector('#status'), pauseButton = document.querySelector('#pause');
@@ -22,6 +23,10 @@ const teams = validateTeams(snapshot), base = import.meta.env.BASE_URL;
 const picker = document.querySelector('#picker'), game = document.querySelector('.game'), startButton = document.querySelector('#start');
 const soundButton = document.querySelector('#sound'), favoriteName = document.querySelector('#favorite-name'), favoriteIcon = document.querySelector('#favorite-icon');
 const musicVersionButton = document.querySelector('#music-version');
+const localBest = document.querySelector('#local-best'), firstFavorite = document.querySelector('#first-favorite');
+let recordsStorage;
+try { recordsStorage = window.localStorage; } catch { /* The current visit can still keep records in memory. */ }
+let records = readRecords(recordsStorage);
 let selectedId = null, route = null, anthem = null, muted = false, musicError = null;
 let anthemLevel = AUDIO.initialLevel, musicMode = 'normal';
 const anthemPositions = new Map();
@@ -30,6 +35,16 @@ const mergeFeedback = createMergeFeedback(), finalChoice = document.querySelecto
 const finalContinue = document.querySelector('#final-continue');
 let feedbackKey = '', pulse = 0, fullscreenError = null, finalPending = false;
 const roundAnalytics = createRoundAnalytics(event => window.KPLAnalytics?.trackEvent(event));
+function renderRecords() {
+  localBest.textContent = records.bestScore.toLocaleString('en-US');
+  const first = records.firstFavorite;
+  if (first) {
+    const team = teams.find(item => item.id === first.teamId);
+    firstFavorite.textContent = `首次本命达成 · ${team?.shortName ?? '历史战队'} · ${first.score.toLocaleString('en-US')} 分`;
+    firstFavorite.hidden = false;
+  }
+}
+renderRecords();
 function updateMusicControls() {
   const currentVersion = musicMode === 'child' ? '小孩版' : '正常版';
   const nextVersion = musicMode === 'child' ? '正常版' : '小孩版';
@@ -58,7 +73,10 @@ function update(state) {
   }
   if (state.score !== previous.score) {
     score.textContent = state.score.toLocaleString('en-US'); score.dataset.long = String(score.textContent.length > 6);
-    if (state.score > (previous.score ?? 0)) { pulse++; score.dataset.pulse = gainPanel.dataset.pulse = pulse % 2 ? 'a' : 'b'; }
+    if (state.score > (previous.score ?? 0)) {
+      pulse++; score.dataset.pulse = gainPanel.dataset.pulse = pulse % 2 ? 'a' : 'b';
+      if (state.score > records.bestScore) { records = recordScore(recordsStorage, records, state.score); renderRecords(); }
+    }
   }
   const feedback = mergeFeedback.state(), scoreEvents = feedback.events;
   const key = scoreEvents.map(event => `${event.tick}:${event.outputId}`).join(',');
@@ -114,7 +132,10 @@ function restart(rng = Math.random, reason = 'start') {
   delete score.dataset.pulse; delete gainPanel.dataset.pulse; gainTotal.textContent = '—'; gainLabel.textContent = '连锁得分';
   session = createSession(canvas, { rng, renderer: createRenderer(canvas, { route, images, reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }), onChange: update,
     onDrop: ball => { mergeFeedback.finish(); canvas.dataset.team = route[ball.level].id; }, onStop: () => { if (!finalPending || document.hidden || pageSuspended) anthem.stop(); else playCurrentAnthem(); }, onResume: playCurrentAnthem, onMerge(event) {
-    if (event.level === 7) roundAnalytics.favorite();
+    if (event.level === 7) {
+      roundAnalytics.favorite();
+      if (!records.firstFavorite) { records = recordScore(recordsStorage, records, event.score, route[7].id); renderRecords(); }
+    }
     mergeFeedback.record(event);
     anthemLevel = anthemLevelAfterMerge(anthemLevel, event.level);
     if (event.level === 7 && !finalPending) {

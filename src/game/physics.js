@@ -92,7 +92,7 @@ export function createPhysics({ rng = Math.random, onMerge = () => {}, onImpact 
       const output = addBall(plan.level, plan.x, plan.y, { velocity: plan.velocity, graceMs: GAME_OVER.mergeGraceMs });
       score += plan.points;
       if (plan.level === 7) finalCount += 1;
-      committed.push({ ...plan, outputId: output.id, x: output.position.x, y: output.position.y, time: now, tick });
+      committed.push({ ...plan, outputId: output.id, x: output.position.x, y: output.position.y, time: now, tick, score });
     }
     // 先完成本 tick 事务，再对外通知，避免 UI 回调介入半完成的 world。
     danger = detector.update(balls.values(), now);
